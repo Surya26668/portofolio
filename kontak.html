@@ -1,77 +1,162 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Kontak - Galang Suryakusuma</title>
-	<style>
-		body{background-color:mintcream;}
-		.container{width:960px;margin:auto;background-color:linen;}
-		.header{background-color:#007bff;padding:10px;}
-		.header ul li{display:inline-block;margin-right:12px;font-size:20px;}
-		.header a{text-decoration:none;color:white;padding:3px;}
-		.header a:hover{background-color:red;color:white;}
-		.main{padding:20px;text-align:center;}
-		input, textarea{
-			width:80%;
-			padding:10px;
-			margin-bottom:10px;
-			border:1px solid #ccc;
-			border-radius:5px;
-		}
-		button{
-			background-color:#007bff;
-			color:white;
-			border:none;
-			padding:10px 20px;
-			border-radius:5px;
-			cursor:pointer;
-		}
-		 section {
-      background: #fff; 
-      padding: 20px; 
-      border-radius: 10px; 
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontak - Galang Suryakusuma</title>
+
+  <style>
+    body {
+      background-color: mintcream;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* ==== HEADER ==== */
+    .header {
+      background-color: #007bff;
+      padding: 15px;
+      text-align: center;
+    }
+    .header ul li {
+      display: inline-block;
+      margin-right: 12px;
+      font-size: 20px;
+    }
+    .header a {
+      text-decoration: none;
+      color: white;
+      padding: 4px 6px;
+      border-radius: 4px;
+    }
+    .header a:hover {
+      background-color: red;
+    }
+
+    /* ==== MAIN ==== */
+    .container {
+      width: 100%;
+      max-width: 960px;
+      margin: auto;
+      padding: 15px;
+    }
+
+    section {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
       margin-bottom: 30px;
     }
-		button:hover{background-color:red;}
-		.fother{background-color:#007bff;padding:20px;color:white;text-align:center;}
-		h2{color:#007bff;}
-	</style>
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 22px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background: red;
+    }
+
+    /* ==== IKON KONTAK ==== */
+    .contact-icons {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .icon {
+      width: 40px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    .contact-link {
+      display: inline-block;
+      margin: 10px 0;
+      font-size: 19px;
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contact-link:hover {
+      text-decoration: underline;
+      color: red;
+    }
+
+    /* ==== FOOTER ==== */
+    .footer {
+      background-color: #007bff;
+      padding: 20px;
+      color: white;
+      text-align: center;
+      width: 100%;
+      margin-top: 30px;
+    }
+
+    /* ==== MOBILE FIX ==== */
+    @media (max-width: 600px) {
+      .container {
+        padding: 10px;
+        width: 100%;
+      }
+
+      .footer {
+        width: 100%;
+        padding: 25px;
+        font-size: 1em;
+      }
+    }
+  </style>
 </head>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
   (function() {
-    emailjs.init("dungS6V9J598adAOs"); // Ganti dengan kunci publik EmailJS Anda
+    emailjs.init("dungS6V9J598adAOs");
   })();
 
   function sendMail(event) {
     event.preventDefault();
     emailjs.sendForm('service_wysanw9', 'template_j1pcjmn', event.target)
-      .then(function() {
-        alert('Pesan berhasil dikirim!');
-      }, function(error) {
-        alert('Gagal mengirim pesan: ' + JSON.stringify(error));
-      });
+      .then(() => alert('Pesan berhasil dikirim!'))
+      .catch(error => alert('Gagal mengirim: ' + JSON.stringify(error)));
   }
 </script>
 
 <body>
-	<div class="container">
-		<div class="header">
-			<ul>
-				<li><a href="index.html">Home    |</a></li>
-				<li><a href="portofolio.html">Portofolio   |</a></li>
-				<li><a href="about.html">About    |</a></li>
-				<li><a href="projek.html">Projek |</a></li>
-				<li><a href="#">Contact</a></li>
-			</ul>
-		</div>
 
-		    <section id="contact">
-      <h3>Kontak</h3>
-      <p>Mohon untuk hubungi saya.</p>
+  <!-- HEADER -->
+  <div class="header">
+    <ul>
+      <li><a href="index.html">Home |</a></li>
+      <li><a href="portofolio.html">Portofolio |</a></li>
+      <li><a href="about.html">About |</a></li>
+      <li><a href="projek.html">Projek |</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- MAIN -->
+  <div class="container">
+
+    <section id="contact">
+      <h2>Kontak</h2>
+      <p>Silakan hubungi saya melalui form atau ikon kontak di bawah.</p>
 
       <form onsubmit="sendMail(event)">
         <input type="text" name="name" placeholder="Nama" required />
@@ -79,18 +164,29 @@
         <textarea name="message" placeholder="Pesan" rows="5" required></textarea>
         <button type="submit">Kirim Pesan</button>
       </form>
-
     </section>
-			<p>Atau hubungi saya langsung:</p>
-			<p>📱 WhatsApp: <a href="https://wa.me/6287766424262"
-			  target="_blank" class="wa-link">
-			  +6287766424262
-			</a>
-			</p>
-			<p>📧 Email: <b>galangsurya289@gmail.com</b></p>
-		</div>
-	</div>
 
-	<div class="fother">Dibuat oleh Galang Suryakusuma</div>
+    <!-- IKON KONTAK -->
+    <div class="contact-icons">
+      <a href="https://wa.me/6287766424262" target="_blank" class="contact-link">
+        <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" class="icon">
+        WhatsApp Saya
+      </a>
+
+      <br>
+
+      <a href="mailto:galangsurya289@gmail.com" class="contact-link">
+        <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" class="icon">
+        Kirim Email
+      </a>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Dibuat oleh <b>Galang Suryakusuma</b>
+  </div>
+
 </body>
-</html>
+	</html>
