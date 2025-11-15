@@ -12,65 +12,6 @@
       margin: 0; 
       padding: 0;
     }
-	img {
-  max-width: 100%;
-	}
-	section {
-  padding: 15px;
-	}
-	  /* Responsif HP Kecil (max-width 600px) */
-@media (max-width: 600px) {
-
-  header {
-    flex-direction: column;
-    text-align: center;
-    padding: 15px;
-  }
-
-  header nav a {
-    display: inline-block;
-    margin: 5px;
-    font-size: 1em;
-  }
-
-  .hero {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  img.profile {
-    width: 100px;
-    height: 100px;
-  }
-
-  main {
-    padding: 0 10px;
-  }
-
-  section ul.list {
-    display: block;
-  }
-  section ul.list li {
-    display: block;
-    margin-bottom: 10px;
-  }
-}
-	  @media screen and (orientation: landscape) and (max-width: 900px) {
-  .hero {
-    flex-direction: row;
-    gap: 10px;
-  }
-
-  img.profile {
-    width: 90px;
-    height: 90px;
-  }
-
-  header nav a {
-    font-size: 0.9em;
-    padding: 5px;
-  }
-	  }
     header {
       background: #007bff;
       color: white;
@@ -84,19 +25,53 @@
       margin: 0; 
       font-size: 1.5em;
     }
-    header nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      text-decoration: none; 
-      color: white; 
-      font-size: 1.2em;
-      padding: 8px;
-    }
-    header nav a:hover {
-		background-color: red;
-		color: white;
-    }
+
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+header nav a {
+  font-weight: 800;         
+  font-size: 1.1em;        
+  color: #ffffff;          
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+header nav a:hover {
+  background: #ff2d2d;      /* hover merah */
+  color: white;
+}
+
+/* item aktif (misal halaman ini) */
+header nav a.active {
+  background: #ff2d2d;
+  color: #fff;
+  font-weight: 900;
+}
+
+/* --- RESPONSIVE NAVBAR HP --- */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  header nav {
+    justify-content: center;
+  }
+
+  header nav a {
+    font-size: 1.05em;
+    padding: 8px 14px;
+  }
+	  }
     main {
       max-width: 900px; 
       margin: 40px auto; 
@@ -315,8 +290,4 @@ Tujuan saya adalah menjadi developer Web3 yang mampu menggabungkan teknologi des
   </main>
 </body>
 </html>
-
-
-
-
 
