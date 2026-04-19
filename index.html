@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ===== RESET & BASE ===== */
         *, *::before, *::after {
             margin: 0;
             padding: 0;
@@ -52,7 +51,6 @@
             overflow-x: hidden;
         }
 
-        /* ===== ANIMATED BACKGROUND ===== */
         .bg-animation {
             position: fixed;
             top: 0;
@@ -105,7 +103,6 @@
             75% { transform: translate(80px, 30px) scale(1.05); }
         }
 
-        /* ===== PARTICLE GRID ===== */
         .grid-bg {
             position: fixed;
             top: 0;
@@ -113,13 +110,12 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background-image: 
+            background-image:
                 linear-gradient(rgba(108, 60, 225, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(108, 60, 225, 0.03) 1px, transparent 1px);
             background-size: 60px 60px;
         }
 
-        /* ===== LOADING SCREEN ===== */
         .loader {
             position: fixed;
             top: 0;
@@ -164,7 +160,6 @@
             to { transform: rotate(360deg); }
         }
 
-        /* ===== CURSOR ===== */
         .cursor-dot {
             width: 8px;
             height: 8px;
@@ -188,7 +183,6 @@
             transition: all 0.15s ease-out;
         }
 
-        /* ===== SCROLL PROGRESS ===== */
         .scroll-progress {
             position: fixed;
             top: 0;
@@ -200,14 +194,12 @@
             box-shadow: 0 0 10px rgba(108, 60, 225, 0.5);
         }
 
-        /* ===== CONTAINER ===== */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* ===== HEADER / NAVBAR ===== */
         .navbar {
             position: fixed;
             top: 0;
@@ -323,7 +315,6 @@
             box-shadow: 0 8px 30px rgba(108, 60, 225, 0.4) !important;
         }
 
-        /* Mobile Menu Toggle */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -353,7 +344,6 @@
             transform: rotate(-45deg) translate(5px, -5px);
         }
 
-        /* ===== HERO SECTION ===== */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -515,7 +505,6 @@
             margin-top: 4px;
         }
 
-        /* Hero Visual */
         .hero-visual {
             position: relative;
             display: flex;
@@ -617,7 +606,6 @@
             }
         }
 
-        /* ===== SECTION STYLES ===== */
         section {
             padding: 100px 0;
             position: relative;
@@ -665,7 +653,6 @@
             margin: 0 auto;
         }
 
-        /* ===== ABOUT SECTION ===== */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -709,7 +696,6 @@
             margin-bottom: 0 !important;
         }
 
-        /* ===== SKILLS CARDS ===== */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -775,7 +761,6 @@
             margin-bottom: 0 !important;
         }
 
-        /* ===== PROJECT SECTION ===== */
         .project-card {
             background: var(--glass);
             border: 1px solid var(--glass-border);
@@ -849,7 +834,6 @@
             font-weight: 500;
         }
 
-        /* ===== TIMELINE / EXPERIENCE ===== */
         .timeline {
             position: relative;
             max-width: 700px;
@@ -926,7 +910,6 @@
             line-height: 1.7;
         }
 
-        /* ===== SIDEBAR INFO (REDESIGNED AS CARDS) ===== */
         .info-cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -991,7 +974,6 @@
             line-height: 1.6;
         }
 
-        /* ===== QUOTE SECTION ===== */
         .quote-section {
             background: var(--glass);
             border-top: 1px solid var(--glass-border);
@@ -1026,7 +1008,6 @@
             font-weight: 600;
         }
 
-        /* ===== CTA SECTION ===== */
         .cta-section {
             padding: 100px 0;
         }
@@ -1077,7 +1058,6 @@
             position: relative;
         }
 
-        /* ===== FOOTER ===== */
         .footer {
             border-top: 1px solid var(--glass-border);
             padding: 60px 0 30px;
@@ -1172,7 +1152,6 @@
             text-decoration: none;
         }
 
-        /* ===== SCROLL TO TOP ===== */
         .scroll-top {
             position: fixed;
             bottom: 30px;
@@ -1205,7 +1184,6 @@
             background: var(--primary-dark);
         }
 
-        /* ===== REVEAL ANIMATIONS ===== */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -1239,7 +1217,6 @@
             transform: translateX(0);
         }
 
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .hero .container {
                 grid-template-columns: 1fr;
@@ -1406,7 +1383,6 @@
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
     <div class="loader" id="loader">
         <div class="loader-content">
             <div class="loader-spinner"></div>
@@ -1414,7 +1390,6 @@
         </div>
     </div>
 
-    <!-- Animated Background -->
     <div class="bg-animation">
         <div class="orb"></div>
         <div class="orb"></div>
@@ -1422,14 +1397,11 @@
     </div>
     <div class="grid-bg"></div>
 
-    <!-- Custom Cursor -->
     <div class="cursor-dot" id="cursorDot"></div>
     <div class="cursor-ring" id="cursorRing"></div>
 
-    <!-- Scroll Progress -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- Navbar -->
     <nav class="navbar" id="navbar">
         <div class="container">
             <a href="#" class="logo">
@@ -1453,7 +1425,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="container">
             <div class="hero-content">
@@ -1516,7 +1487,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about">
         <div class="container">
             <div class="section-header reveal">
@@ -1578,7 +1548,6 @@
         </div>
     </section>
 
-    <!-- Featured Project -->
     <section id="project" style="background: var(--dark-2);">
         <div class="container">
             <div class="section-header reveal">
@@ -1607,7 +1576,6 @@
         </div>
     </section>
 
-    <!-- Journey / Timeline -->
     <section id="journey">
         <div class="container">
             <div class="section-header reveal">
@@ -1665,7 +1633,6 @@
         </div>
     </section>
 
-    <!-- Values / Info Cards -->
     <section id="values" style="background: var(--dark-2);">
         <div class="container">
             <div class="section-header reveal">
@@ -1709,7 +1676,6 @@
         </div>
     </section>
 
-    <!-- Quote Section -->
     <section class="quote-section reveal">
         <div class="container">
             <div class="quote-content">
@@ -1722,7 +1688,6 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-box reveal">
@@ -1740,7 +1705,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -1795,21 +1759,17 @@
         </div>
     </footer>
 
-    <!-- Scroll to Top -->
     <button class="scroll-top" id="scrollTop">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- JavaScript -->
     <script>
-        // ===== LOADER =====
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('loader').classList.add('hidden');
             }, 1200);
         });
 
-        // ===== CUSTOM CURSOR =====
         const cursorDot = document.getElementById('cursorDot');
         const cursorRing = document.getElementById('cursorRing');
 
@@ -1831,26 +1791,22 @@
             });
         });
 
-        // ===== NAVBAR SCROLL =====
         const navbar = document.getElementById('navbar');
         const scrollProgress = document.getElementById('scrollProgress');
         const scrollTopBtn = document.getElementById('scrollTop');
 
         window.addEventListener('scroll', () => {
-            // Navbar background
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
 
-            // Scroll progress
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
             scrollProgress.style.width = scrolled + '%';
 
-            // Scroll to top button
             if (window.scrollY > 500) {
                 scrollTopBtn.classList.add('visible');
             } else {
@@ -1858,12 +1814,10 @@
             }
         });
 
-        // Scroll to top
         scrollTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // ===== MOBILE MENU =====
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
 
@@ -1872,7 +1826,6 @@
             navLinks.classList.toggle('open');
         });
 
-        // Close menu on link click
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
@@ -1880,7 +1833,6 @@
             });
         });
 
-        // ===== SCROLL REVEAL =====
         const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
 
         const revealObserver = new IntersectionObserver((entries) => {
@@ -1896,7 +1848,6 @@
 
         revealElements.forEach(el => revealObserver.observe(el));
 
-
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1906,11 +1857,6 @@
                 }
             });
         });
-
-        const heroTitle = document.querySelector('.hero h1');
-        if (heroTitle) {
-            heroTitle.style.opacity = '1';
-        }
     </script>
 </body>
 </html>
