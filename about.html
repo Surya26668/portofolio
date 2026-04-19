@@ -1,43 +1,405 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Tentang Saya - Galang Suryakusuma</title>
-	<style>
-		body{background-color:mintcream;}
-		.container{width:960px;margin:auto;background-color:linen;}
-		.header{background-color:#007bff;padding:10px;}
-		.header ul li{display:inline-block;margin-right:12px;font-size:20px;}
-		.header a{text-decoration:none;color:white;padding:3px;}
-		.header a:hover{background-color:red;color:white;}
-		.main{padding:20px;text-align:justify;}
-		.fother{background-color:#007bff;padding:20px;color:white;text-align:center;}
-		h2{color:#007bff;}
-		img{width:150px;border-radius:50%;float:left;margin-right:15px;}
-	</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About | Galang Suryakusuma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-	<div class="container">
-		<div class="header">
-			<ul>
-				<li><a href="index.html">Home    |</a></li>
-				<li><a href="portofolio.html">Portofolio |</a></li>
-				<li><a href="#">About |</a></li>
-				<li><a href="projek.html">Projek |</a></li>
-				<li><a href="kontak.html">Contact</a></li>
-			</ul>
-		</div>
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">LOADING</div>
+        </div>
+    </div>
 
-		<div class="main">
-			<h2>👤 Tentang Saya</h2>
-			<img src="g.jpg" alt="Foto Galang">
-			<p>Halo! Saya <b>Galang Suryakusuma</b>, siswa kelas XII yang memiliki minat besar di bidang <b>informatika</b>, khususnya dalam <b>cyber security</b>.</p>
-			<p>Saya senang mempelajari hal-hal seperti keamanan sistem, jaringan, dan cara kerja komputer. Selain itu, saya pernah membuat aplikasi QRIS Parkir bersama tim di sekolah dalam proyek P5.</p>
-			<p>Tujuan saya adalah menjadi seorang <b>ahli keamanan siber</b> yang mampu melindungi sistem dan data dari ancaman digital, serta terus belajar agar bisa memberi manfaat lewat teknologi.</p>
-		</div>
-	</div>
+    <div class="bg-animation">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+    <div class="grid-bg"></div>
 
-	<div class="fother">Dibuat oleh Galang Suryakusuma</div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">G</div>
+                <div class="logo-text">Galang<span>.</span></div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portofolio.html">Portofolio</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="projek.html">Projek</a></li>
+                <li><a href="kontak.html" class="nav-cta">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-image" style="animation:fadeInUp 0.6s ease forwards;opacity:0;">
+                <img src="g.jpg" alt="Galang Suryakusuma">
+            </div>
+            <div class="page-hero-content">
+                <div style="animation:fadeInUp 0.6s ease 0.1s forwards;opacity:0;">
+                    <span class="tag" style="margin-bottom:16px;"><i class="fas fa-user" style="margin-right:6px;"></i>About Me</span>
+                </div>
+                <h1 style="animation:fadeInUp 0.6s ease 0.2s forwards;opacity:0;">
+                    Saya <span class="gradient-text">Galang</span><br>
+                    <span class="gradient-text-2">Suryakusuma</span>
+                </h1>
+                <p style="animation:fadeInUp 0.6s ease 0.3s forwards;opacity:0;">
+                    Siswa kelas XII dengan passion besar di bidang <strong style="color:var(--accent);">Cyber Security</strong> dan <strong style="color:var(--primary-light);">Blockchain Technology</strong>. Saya percaya teknologi adalah alat untuk menciptakan perubahan positif.
+                </p>
+                <div class="page-hero-buttons" style="animation:fadeInUp 0.6s ease 0.4s forwards;opacity:0;">
+                    <a href="0.pdf" class="btn btn-outline"><i class="fas fa-download"></i> Unduh CV</a>
+                    <a href="kontak.html" class="btn btn-primary"><i class="fas fa-envelope"></i> Hubungi Saya</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="story">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Cerita Saya</div>
+                <h2 class="section-title">Siapa Saya?</h2>
+                <p class="section-desc">Mengenal lebih dalam tentang perjalanan dan motivasi saya</p>
+            </div>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
+                <div class="reveal-left">
+                    <div style="font-size:15px;color:var(--text-muted);line-height:1.8;text-align:justify;">
+                        <p style="margin-bottom:20px;">
+                            Halo! Saya <strong style="color:var(--text-bright);">Galang Suryakusuma</strong>, siswa kelas XII yang memiliki minat besar di bidang informatika, khususnya dalam <strong style="color:var(--accent);">cyber security</strong> dan <strong style="color:var(--primary-light);">blockchain technology</strong>.
+                        </p>
+                        <p style="margin-bottom:20px;">
+                            Saya senang mempelajari hal-hal seperti keamanan sistem, jaringan, dan cara kerja komputer. Selain itu, saya pernah membuat aplikasi QRIS Parkir bersama tim di sekolah dalam proyek P5 — sebuah sistem parkir digital yang menggunakan teknologi barcode untuk identifikasi kendaraan secara otomatis.
+                        </p>
+                        <p style="margin-bottom:20px;">
+                            Ketertarikan saya pada dunia teknologi bukan sekadar hobi. Ini adalah panggilan saya untuk berkontribusi dalam menciptakan sistem digital yang lebih aman, efisien, dan bermanfaat bagi masyarakat luas.
+                        </p>
+                        <p>
+                            Tujuan saya adalah menjadi seorang <strong style="color:var(--text-bright);">ahli keamanan siber (Cyber Security Specialist)</strong> sekaligus pengembang sistem berbasis blockchain yang mampu melindungi data dan meningkatkan keamanan digital di era modern.
+                        </p>
+                    </div>
+
+                    <div style="background:var(--glass);border:1px solid var(--glass-border);border-left:3px solid var(--primary);padding:20px 24px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin-top:28px;">
+                        <p style="font-style:italic;color:var(--text);font-size:14px;line-height:1.7;">
+                            "Bagi saya, belajar bukan hanya soal memperoleh nilai atau gelar, tetapi lebih tentang memahami dunia, menemukan solusi untuk permasalahan nyata, dan memberikan kontribusi positif bagi lingkungan sekitar."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="reveal-right">
+                    <div class="info-grid" style="margin-bottom:28px;">
+                        <div class="info-item">
+                            <i class="fas fa-user"></i>
+                            <div>
+                                <div class="info-label">Nama</div>
+                                <div class="info-value">Galang Suryakusuma</div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-school"></i>
+                            <div>
+                                <div class="info-label">Sekolah</div>
+                                <div class="info-value">SMA Negeri 1 Kendal</div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-location-dot"></i>
+                            <div>
+                                <div class="info-label">Lokasi</div>
+                                <div class="info-value">Kendal, Jawa Tengah</div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <div class="info-label">Email</div>
+                                <div class="info-value">galangsurya289@gmail.com</div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <div class="info-label">Telepon</div>
+                                <div class="info-value">+62 877-6642-4262</div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fab fa-github"></i>
+                            <div>
+                                <div class="info-label">GitHub</div>
+                                <div class="info-value">github.com/Surya26668</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card" style="text-align:center;">
+                        <div style="font-size:13px;color:var(--text-muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;">Status Saat Ini</div>
+                        <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:12px;">
+                            <div style="width:10px;height:10px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite;"></div>
+                            <span style="font-size:15px;font-weight:600;color:var(--text-bright);">Available for Opportunities</span>
+                        </div>
+                        <p style="font-size:13px;color:var(--text-muted);">Terbuka untuk beasiswa, magang, dan kolaborasi proyek teknologi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-alt" id="values">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Nilai</div>
+                <h2 class="section-title">Nilai & Karakter Saya</h2>
+                <p class="section-desc">Prinsip yang saya pegang dalam belajar dan bekerja</p>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+                <div class="glass-card reveal" style="text-align:center;">
+                    <div class="icon-box-gradient" style="margin:0 auto 20px;"><i class="fas fa-shield-halved"></i></div>
+                    <h4 style="font-size:16px;font-weight:700;color:var(--text-bright);margin-bottom:10px;">Integritas</h4>
+                    <p style="font-size:13px;color:var(--text-muted);line-height:1.6;">Jujur dan bertanggung jawab dalam setiap tindakan, baik di dunia nyata maupun digital.</p>
+                </div>
+                <div class="glass-card reveal" style="text-align:center;">
+                    <div class="icon-box-gradient" style="margin:0 auto 20px;"><i class="fas fa-brain"></i></div>
+                    <h4 style="font-size:16px;font-weight:700;color:var(--text-bright);margin-bottom:10px;">Rasa Ingin Tahu</h4>
+                    <p style="font-size:13px;color:var(--text-muted);line-height:1.6;">Selalu haus akan pengetahuan baru dan tidak berhenti mengeksplorasi hal-hal baru.</p>
+                </div>
+                <div class="glass-card reveal" style="text-align:center;">
+                    <div class="icon-box-gradient" style="margin:0 auto 20px;"><i class="fas fa-bullseye"></i></div>
+                    <h4 style="font-size:16px;font-weight:700;color:var(--text-bright);margin-bottom:10px;">Disiplin</h4>
+                    <p style="font-size:13px;color:var(--text-muted);line-height:1.6;">Konsisten dalam belajar dan mengerjakan setiap tugas dengan serius dan teliti.</p>
+                </div>
+                <div class="glass-card reveal" style="text-align:center;">
+                    <div class="icon-box-gradient" style="margin:0 auto 20px;"><i class="fas fa-users"></i></div>
+                    <h4 style="font-size:16px;font-weight:700;color:var(--text-bright);margin-bottom:10px;">Kolaborasi</h4>
+                    <p style="font-size:13px;color:var(--text-muted);line-height:1.6;">Percaya bahwa kerja tim menghasilkan inovasi yang lebih besar dari kerja sendiri.</p>
+                </div>
+                <div class="glass-card reveal" style="text-align:center;">
+                    <div class="icon-box-gradient" style="margin:0 auto 20px;"><i class="fas fa-lightbulb"></i></div>
+                    <h4 style="font-size:16px;font-weight:700;color:var(--text-bright);margin-bottom:10px;">Inovasi</h4>
+                    <p style="font-size:13px;color:var(--text-muted);line-height:1.6;">Berpikir kreatif dan mencari solusi baru untuk setiap permasalahan yang ada.</p>
+                </div>
+                <div class="glass-card reveal" style="text-align:center;">
+                    <div class="icon-box-gradient" style="margin:0 auto 20px;"><i class="fas fa-heart"></i></div>
+                    <h4 style="font-size:16px;font-weight:700;color:var(--text-bright);margin-bottom:10px;">Kontribusi</h4>
+                    <p style="font-size:13px;color:var(--text-muted);line-height:1.6;">Berkomitmen memberikan dampak positif nyata melalui teknologi untuk masyarakat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="passion">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Minat</div>
+                <h2 class="section-title">Bidang Yang Saya Minati</h2>
+                <p class="section-desc">Fokus pengembangan diri saya di dunia teknologi</p>
+            </div>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;">
+                <div class="glass-card reveal" style="display:flex;gap:24px;align-items:start;">
+                    <div style="width:60px;height:60px;background:linear-gradient(135deg,#6C3CE1,#00D4AA);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:24px;color:white;flex-shrink:0;">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <h4 style="font-size:17px;font-weight:700;color:var(--text-bright);margin-bottom:8px;">Cyber Security</h4>
+                        <p style="font-size:13px;color:var(--text-muted);line-height:1.7;">Keamanan siber adalah passion utama saya. Saya tertarik pada bagaimana sistem dilindungi dari ancaman, cara kerja enkripsi, dan etika dalam keamanan digital.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card reveal" style="display:flex;gap:24px;align-items:start;">
+                    <div style="width:60px;height:60px;background:linear-gradient(135deg,#E040FB,#6C3CE1);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:24px;color:white;flex-shrink:0;">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <div>
+                        <h4 style="font-size:17px;font-weight:700;color:var(--text-bright);margin-bottom:8px;">Blockchain & Web3</h4>
+                        <p style="font-size:13px;color:var(--text-muted);line-height:1.7;">Teknologi desentralisasi yang menawarkan transparansi dan keamanan tinggi. Saya mempelajari smart contract, DApp, dan potensinya untuk masa depan.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card reveal" style="display:flex;gap:24px;align-items:start;">
+                    <div style="width:60px;height:60px;background:linear-gradient(135deg,#00D4AA,#1A1A3E);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:24px;color:white;flex-shrink:0;">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div>
+                        <h4 style="font-size:17px;font-weight:700;color:var(--text-bright);margin-bottom:8px;">Software Development</h4>
+                        <p style="font-size:13px;color:var(--text-muted);line-height:1.7;">Membuat aplikasi yang berguna dan efisien. Dari Python scripting hingga pengembangan web, saya menikmati proses membangun solusi dari nol.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card reveal" style="display:flex;gap:24px;align-items:start;">
+                    <div style="width:60px;height:60px;background:linear-gradient(135deg,#6C3CE1,#E040FB);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:24px;color:white;flex-shrink:0;">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div>
+                        <h4 style="font-size:17px;font-weight:700;color:var(--text-bright);margin-bottom:8px;">Networking & Infrastructure</h4>
+                        <p style="font-size:13px;color:var(--text-muted);line-height:1.7;">Memahami cara jaringan komputer bekerja adalah fondasi penting dalam cyber security. Saya terus belajar tentang protokol, arsitektur jaringan, dan keamanannya.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-alt" id="goals">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Tujuan</div>
+                <h2 class="section-title">Cita-Cita & Tujuan Saya</h2>
+                <p class="section-desc">Visi jangka pendek dan panjang yang ingin saya capai</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">// Jangka Pendek</div>
+                        <h4>Melanjutkan ke Perguruan Tinggi</h4>
+                        <p>Diterima di jurusan Teknik Informatika atau Ilmu Komputer di perguruan tinggi terbaik untuk memperdalam ilmu secara formal dan terstruktur.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"><i class="fas fa-shield-halved"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">// Menengah</div>
+                        <h4>Menjadi Cyber Security Specialist</h4>
+                        <p>Menguasai ilmu keamanan siber secara mendalam, mendapatkan sertifikasi internasional, dan berkontribusi dalam melindungi sistem digital dari ancaman.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"><i class="fas fa-cubes"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">// Jangka Panjang</div>
+                        <h4>Developer Web3 & Blockchain</h4>
+                        <p>Mengembangkan solusi berbasis blockchain yang berdampak nyata bagi masyarakat — mulai dari sistem identitas digital hingga aplikasi keuangan terdesentralisasi.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"><i class="fas fa-globe"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">// Ultimate Goal</div>
+                        <h4>Inovator Teknologi Indonesia</h4>
+                        <p>Menjadi bagian dari generasi inovator teknologi Indonesia yang dikenal secara global, menciptakan solusi digital yang aman, inklusif, dan bermanfaat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fun-facts">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Fun Facts</div>
+                <h2 class="section-title">Fakta Tentang Saya</h2>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+                <div class="glass-card reveal" style="text-align:center;padding:32px 20px;">
+                    <div style="font-size:36px;margin-bottom:12px;">🛡️</div>
+                    <h4 style="font-size:14px;font-weight:600;color:var(--text-bright);margin-bottom:8px;">Cyber Security Enthusiast</h4>
+                    <p style="font-size:12px;color:var(--text-muted);">Belajar security sejak kelas XI</p>
+                </div>
+                <div class="glass-card reveal" style="text-align:center;padding:32px 20px;">
+                    <div style="font-size:36px;margin-bottom:12px;">⛓️</div>
+                    <h4 style="font-size:14px;font-weight:600;color:var(--text-bright);margin-bottom:8px;">Blockchain Explorer</h4>
+                    <p style="font-size:12px;color:var(--text-muted);">Belajar mandiri lewat dokumentasi Ethereum</p>
+                </div>
+                <div class="glass-card reveal" style="text-align:center;padding:32px 20px;">
+                    <div style="font-size:36px;margin-bottom:12px;">🤖</div>
+                    <h4 style="font-size:14px;font-weight:600;color:var(--text-bright);margin-bottom:8px;">Bot Developer</h4>
+                    <p style="font-size:12px;color:var(--text-muted);">Pernah buat Telegram bot dengan Python</p>
+                </div>
+                <div class="glass-card reveal" style="text-align:center;padding:32px 20px;">
+                    <div style="font-size:36px;margin-bottom:12px;">🚗</div>
+                    <h4 style="font-size:14px;font-weight:600;color:var(--text-bright);margin-bottom:8px;">QRIS Parkir Creator</h4>
+                    <p style="font-size:12px;color:var(--text-muted);">Proyek P5 terbaik di sekolah</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding:100px 0;background:var(--dark-2);">
+        <div class="container">
+            <div class="reveal" style="background:linear-gradient(135deg,var(--dark-3),var(--dark-4));border:1px solid var(--glass-border);border-radius:24px;padding:60px;text-align:center;position:relative;overflow:hidden;">
+                <h2 style="font-size:36px;font-weight:800;color:var(--text-bright);margin-bottom:16px;letter-spacing:-1px;position:relative;">Mari Terhubung!</h2>
+                <p style="font-size:16px;color:var(--text-muted);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;position:relative;">Saya selalu senang bertemu orang-orang baru, berbagi ilmu, dan berkolaborasi dalam proyek teknologi yang menarik.</p>
+                <div style="display:flex;justify-content:center;gap:16px;position:relative;flex-wrap:wrap;">
+                    <a href="kontak.html" class="btn btn-primary"><i class="fas fa-envelope"></i> Hubungi Saya</a>
+                    <a href="projek.html" class="btn btn-outline"><i class="fas fa-code"></i> Lihat Projek</a>
+                    <a href="portofolio.html" class="btn btn-outline"><i class="fas fa-folder-open"></i> Portofolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">G</div>
+                        <div class="logo-text">Galang<span>.</span></div>
+                    </a>
+                    <p>Siswa kelas XII yang bersemangat dalam bidang Cyber Security dan Blockchain Technology.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigasi</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="portofolio.html">Portofolio</a></li>
+                        <li><a href="projek.html">Projek</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Minat</h4>
+                    <ul>
+                        <li><a href="#">Cyber Security</a></li>
+                        <li><a href="#">Blockchain</a></li>
+                        <li><a href="#">Programming</a></li>
+                        <li><a href="#">Networking</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontak</h4>
+                    <ul>
+                        <li><a href="kontak.html"><i class="fas fa-envelope" style="margin-right:8px;"></i>Email</a></li>
+                        <li><a href="#"><i class="fab fa-whatsapp" style="margin-right:8px;"></i>WhatsApp</a></li>
+                        <li><a href="#"><i class="fab fa-telegram" style="margin-right:8px;"></i>Telegram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 <a href="#">Galang Suryakusuma</a>. All rights reserved.</p>
+                <p>Built with <i class="fas fa-heart" style="color:#E040FB;margin:0 4px;"></i> and passion</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
 </body>
 </html>
