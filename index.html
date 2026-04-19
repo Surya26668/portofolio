@@ -1,172 +1,1916 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" ="width=device-width, initial-scale=1">
-	<title>Home</title>
-	<style type="text/css">
-		.container{
-			width: 960px;
-			margin: auto;
-			background-color: linen;
-		}
-		.header{
-			padding: 0px;
-			padding-bottom: 20px;
-			padding-top: 20px;
-			margin-bottom: -20px;
-			background-color: #007bff ;
-			text-align: center;
-			color: #f6f7f7;
-			font-size: 30px;
-		}
-		.nav{
-			background-color: #007bff ;
-		}
-		.nav ul li{
-			display: inline-block;
-			margin-top: 10px;
-			margin-right: 12px;
-			margin-bottom: 10px;
-			font-size: 20px;
-		}
-		.nav a{
-			text-decoration: none;
-			color: white;
-			padding: 3px;
-		}
-		.nav a:hover{
-			background-color: red;
-			color: white;
-		}
-		.hero{
-			height: 380px;
-			background-image: url(L.jpg);
-			background-size: cover;
-			background-position: 0 -250px;
-			border-bottom: 6px solid salmon;
-			border-top: 3px solid whitesmoke;
-		}
-		.conten{
-			padding: 20px;
-			width: 600px;
-			box-sizing: border-box;
-			float:left;
-			text-align: justify;
-		}
-		.sidebar{
-			width: 300px;
-			float: right;
-			padding: 20px;
-			text-align: justify;
-		}
-		.sidebar h3{
-			font-weight: bold;
-			color: salmon;
-		}
-		.sidebar p{
-			font:12px/20px arial;
-		}
-		img{
-			width: 50px;
-			height: auto;
-			float: left;
-			padding: 12px;
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Galang Suryakusuma | Cyber Security Enthusiast</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-		}
-		.footer{
-			height: 100px;
-			background-color: #007bff;
-			padding: 20px;
-			color: white;
-			text-align: center;
-			height: 30px;
-			width: 920px;
-			margin: auto;
-			display: inline-block;
-		}
-		.sidebar-text {
-            display: block;
-            margin-bottom: 15px;
-            line-height: 1.6;
+        :root {
+            --primary: #6C3CE1;
+            --primary-dark: #5A2DC5;
+            --primary-light: #8B5CF6;
+            --accent: #00D4AA;
+            --accent-dark: #00B894;
+            --dark: #0A0A1A;
+            --dark-2: #12122A;
+            --dark-3: #1A1A3E;
+            --dark-4: #252550;
+            --text: #E2E8F0;
+            --text-muted: #94A3B8;
+            --text-bright: #F8FAFC;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --gradient-1: linear-gradient(135deg, #6C3CE1, #00D4AA);
+            --gradient-2: linear-gradient(135deg, #6C3CE1, #E040FB);
+            --gradient-3: linear-gradient(180deg, #0A0A1A 0%, #12122A 100%);
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            --shadow-glow: 0 0 40px rgba(108, 60, 225, 0.15);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --radius-xs: 6px;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ===== ANIMATED BACKGROUND ===== */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-animation .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: floatOrb 20s ease-in-out infinite;
+        }
+
+        .bg-animation .orb:nth-child(1) {
+            width: 600px;
+            height: 600px;
+            background: var(--primary);
+            top: -200px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .bg-animation .orb:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            background: var(--accent);
+            bottom: -100px;
+            left: -100px;
+            animation-delay: -7s;
+        }
+
+        .bg-animation .orb:nth-child(3) {
+            width: 300px;
+            height: 300px;
+            background: #E040FB;
+            top: 50%;
+            left: 50%;
+            animation-delay: -14s;
+        }
+
+        @keyframes floatOrb {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -80px) scale(1.1); }
+            50% { transform: translate(-30px, 50px) scale(0.9); }
+            75% { transform: translate(80px, 30px) scale(1.05); }
+        }
+
+        /* ===== PARTICLE GRID ===== */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                linear-gradient(rgba(108, 60, 225, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(108, 60, 225, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        /* ===== LOADING SCREEN ===== */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--dark-3);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        .loader-text {
+            font-family: 'JetBrains Mono', monospace;
             font-size: 14px;
+            color: var(--primary-light);
+            letter-spacing: 3px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ===== CURSOR ===== */
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-ring {
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(108, 60, 225, 0.5);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.15s ease-out;
+        }
+
+        /* ===== SCROLL PROGRESS ===== */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--gradient-1);
+            z-index: 9999;
+            transition: width 0.1s;
+            box-shadow: 0 0 10px rgba(108, 60, 225, 0.5);
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== HEADER / NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 26, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 12px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-bright);
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--gradient-1);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-bright);
+            background: var(--glass);
+        }
+
+        .nav-links a.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .nav-cta {
+            background: var(--gradient-1) !important;
+            color: white !important;
+            font-weight: 600 !important;
+            box-shadow: 0 4px 20px rgba(108, 60, 225, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(108, 60, 225, 0.4) !important;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--text);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--text-bright);
+            margin-bottom: 16px;
+            letter-spacing: -2px;
+            animation: fadeInUp 0.8s ease 0.1s forwards;
+            opacity: 0;
+        }
+
+        .hero h1 .gradient-text {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h1 .gradient-text-2 {
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            max-width: 480px;
+            line-height: 1.7;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: 0 4px 25px rgba(108, 60, 225, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(108, 60, 225, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 1.5px solid var(--glass-border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-light);
+            color: var(--primary-light);
+            background: rgba(108, 60, 225, 0.05);
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 48px;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--text-bright);
+            letter-spacing: -1px;
+        }
+
+        .stat-number span {
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInUp 0.8s ease 0.5s forwards;
+            opacity: 0;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 380px;
+            height: 380px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+            border: 2px solid var(--glass-border);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            float: none;
+            padding: 0;
+        }
+
+        .hero-image-glow {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-1);
+            border-radius: 30px;
+            z-index: 1;
+            opacity: 0.2;
+            filter: blur(20px);
+        }
+
+        .floating-card {
+            position: absolute;
+            background: rgba(18, 18, 42, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-sm);
+            padding: 14px 20px;
+            z-index: 3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-card:nth-child(3) {
+            top: 10%;
+            right: -40px;
+            animation-delay: 0s;
+        }
+
+        .floating-card:nth-child(4) {
+            bottom: 15%;
+            left: -50px;
+            animation-delay: -2s;
+        }
+
+        .floating-card:nth-child(5) {
+            bottom: -10px;
+            right: 20px;
+            animation-delay: -4s;
+        }
+
+        .floating-card i {
+            margin-right: 8px;
+            color: var(--accent);
+        }
+
+        .floating-card span {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== SECTION STYLES ===== */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--primary-light);
+            margin-bottom: 16px;
+        }
+
+        .section-label::before,
+        .section-label::after {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--primary-light);
+            opacity: 0.4;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--text-bright);
+            letter-spacing: -1.5px;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-content p {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.8;
             text-align: justify;
-		}
+        }
 
+        .about-content p:first-of-type::first-letter {
+            font-size: 48px;
+            font-weight: 800;
+            float: left;
+            line-height: 1;
+            margin-right: 12px;
+            margin-top: 4px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-		/* clearfix */
-		.cf:before;
-		.cf:after {
-		    content: " "; 
-		    display: table; 
-		}
+        .about-highlight {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-left: 3px solid var(--primary);
+            padding: 20px 24px;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin: 28px 0;
+        }
 
-		.cf:after {
-		    clear: both;
-		}
+        .about-highlight p {
+            font-style: italic;
+            color: var(--text) !important;
+            margin-bottom: 0 !important;
+        }
 
-		.cf {
-		    *zoom: 1;
-		}
+        /* ===== SKILLS CARDS ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
 
-	</style>
+        .skill-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 28px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-1);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(108, 60, 225, 0.3);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .skill-card:hover::before {
+            opacity: 1;
+        }
+
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--dark-3);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: var(--primary-light);
+        }
+
+        .skill-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-bright);
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 0 !important;
+        }
+
+        /* ===== PROJECT SECTION ===== */
+        .project-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+            border-color: rgba(108, 60, 225, 0.3);
+        }
+
+        .project-image {
+            height: 240px;
+            background: var(--gradient-1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-image i {
+            font-size: 60px;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .project-info {
+            padding: 32px;
+        }
+
+        .project-tag {
+            display: inline-block;
+            padding: 4px 14px;
+            background: rgba(108, 60, 225, 0.15);
+            color: var(--primary-light);
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .project-info h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-bright);
+            margin-bottom: 12px;
+        }
+
+        .project-info p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .project-tech span {
+            padding: 4px 12px;
+            background: var(--dark-3);
+            border-radius: 50px;
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* ===== TIMELINE / EXPERIENCE ===== */
+        .timeline {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            opacity: 0.3;
+        }
+
+        .timeline-item {
+            padding-left: 70px;
+            position: relative;
+            margin-bottom: 48px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            width: 50px;
+            height: 50px;
+            background: var(--dark-2);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--primary-light);
+        }
+
+        .timeline-content {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 28px;
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            border-color: rgba(108, 60, 225, 0.3);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .timeline-date {
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .timeline-content h4 {
+            font-size: 18px;
+            color: var(--text-bright);
+            margin-bottom: 8px;
+        }
+
+        .timeline-content p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== SIDEBAR INFO (REDESIGNED AS CARDS) ===== */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .info-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 32px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-1);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(108, 60, 225, 0.3);
+        }
+
+        .info-card:hover::after {
+            opacity: 1;
+        }
+
+        .info-card-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(108, 60, 225, 0.15), rgba(0, 212, 170, 0.15));
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--primary-light);
+            margin: 0 auto 20px;
+        }
+
+        .info-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-bright);
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== QUOTE SECTION ===== */
+        .quote-section {
+            background: var(--glass);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .quote-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quote-icon {
+            font-size: 48px;
+            color: var(--primary);
+            opacity: 0.3;
+            margin-bottom: 24px;
+        }
+
+        .quote-text {
+            font-size: 24px;
+            font-weight: 300;
+            color: var(--text);
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .quote-author {
+            font-size: 14px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: 100px 0;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--dark-3), var(--dark-4));
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(108, 60, 225, 0.08) 0%, transparent 60%);
+        }
+
+        .cta-box h2 {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--text-bright);
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+            position: relative;
+        }
+
+        .cta-box p {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            position: relative;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            border-top: 1px solid var(--glass-border);
+            padding: 60px 0 30px;
+            background: var(--dark-2);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 16px;
+            line-height: 1.7;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xs);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-bright);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul a {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col ul a:hover {
+            color: var(--primary-light);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--glass-border);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .footer-bottom a {
+            color: var(--primary-light);
+            text-decoration: none;
+        }
+
+        /* ===== SCROLL TO TOP ===== */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(108, 60, 225, 0.3);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            background: var(--primary-dark);
+        }
+
+        /* ===== REVEAL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 44px;
+            }
+
+            .hero-subtitle {
+                margin: 0 auto 36px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .hero-image-wrapper {
+                width: 300px;
+                height: 300px;
+            }
+
+            .floating-card:nth-child(3) { right: -10px; }
+            .floating-card:nth-child(4) { left: -10px; }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .section-title {
+                font-size: 34px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: var(--dark-2);
+                flex-direction: column;
+                padding: 100px 30px 30px;
+                gap: 4px;
+                transition: var(--transition);
+                border-left: 1px solid var(--glass-border);
+            }
+
+            .nav-links.open {
+                right: 0;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 14px 20px;
+                border-radius: var(--radius-xs);
+                font-size: 16px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+                letter-spacing: -1px;
+            }
+
+            .hero-stats {
+                gap: 24px;
+            }
+
+            .stat-number {
+                font-size: 24px;
+            }
+
+            .hero-image-wrapper {
+                width: 250px;
+                height: 250px;
+            }
+
+            .floating-card { display: none; }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+
+            .cta-box {
+                padding: 40px 24px;
+            }
+
+            .cta-box h2 {
+                font-size: 28px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .quote-text {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .cursor-dot, .cursor-ring {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero-subtitle {
+                font-size: 15px;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+        }
+    </style>
 </head>
 <body>
-	<div class="container">
-		<div class="header">Moto Hidup </div>
-		<div class="nav">
-			<ul>
-				<li><a href="portofolio.html">Portofolio   |</a></li>
-				<li><a href="about.html">About    |</a></li>
-				<li><a href="projek.html">Projek |</a></li>
-				<li><a href="kontak.html">Contact</a></li>
-			</ul>	
-		</div>
-		<div class="hero"></div>
-		<div class="conten">
-	<p>Saya adalah seorang siswa kelas XII yang memiliki minat yang sangat besar di bidang informatika, khususnya dalam keamanan siber atau cyber security. Sejak kecil, saya selalu tertarik dengan dunia teknologi, perangkat keras, dan perangkat lunak. Rasa ingin tahu saya terhadap cara kerja komputer, sistem digital, dan jaringan membuat saya senang mempelajari berbagai hal tentang teknologi, mulai dari pemrograman, pengolahan data, hingga perlindungan sistem dari berbagai ancaman. Ketertarikan ini bukan hanya sekadar hobi, tetapi juga menjadi motivasi bagi saya untuk terus belajar dan mengasah kemampuan agar suatu hari dapat berkontribusi dalam bidang yang semakin penting ini.</p>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">LOADING</div>
+        </div>
+    </div>
 
-	<p>Selama di sekolah, saya mendapatkan kesempatan untuk mengembangkan minat dan kemampuan saya melalui berbagai kegiatan akademik dan proyek, salah satunya melalui Proyek Penguatan Profil Pelajar Pancasila (P5). Dalam proyek tersebut, saya bekerja bersama tim untuk membuat aplikasi QRIS Parkir, yaitu sebuah sistem parkir digital yang menggunakan teknologi barcode. Aplikasi ini memungkinkan petugas atau pengguna untuk memindai barcode parkir yang berisi informasi nomor SIM dan foto pemilik kendaraan. Dengan sistem ini, proses identifikasi kendaraan menjadi lebih cepat, aman, dan efisien.</p>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+    <div class="grid-bg"></div>
 
-	<p>Proyek ini mengajarkan saya banyak hal, termasuk bagaimana bekerja dalam tim, merancang alur aplikasi yang efektif, mengelola data dengan aman, serta memahami pentingnya keamanan informasi dalam sistem digital. Melalui pengalaman ini, saya semakin menyadari betapa krusialnya keamanan siber di era digital saat ini. Data pribadi dan informasi penting, seperti identitas pengendara dalam aplikasi QRIS Parkir, harus dilindungi dari akses yang tidak sah.</p>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
 
-	<p>Hal ini menumbuhkan kesadaran saya bahwa kemampuan teknis saja tidak cukup, tetapi dibutuhkan juga pemahaman tentang etika digital, perlindungan data, dan prinsip-prinsip keamanan siber secara menyeluruh. Oleh karena itu, saya bertekad untuk terus belajar dan memperdalam pengetahuan saya di bidang cyber security, agar suatu hari dapat menjadi seorang profesional yang mampu merancang, mengamankan, dan melindungi sistem digital dari berbagai ancaman.</p>
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
-	<p>Selain fokus pada teknologi, saya juga berusaha untuk membangun karakter yang disiplin, jujur, dan bertanggung jawab. Saya meyakini bahwa keberhasilan bukan hanya ditentukan oleh kemampuan akademik, tetapi juga oleh sikap, etos kerja, dan semangat untuk terus berkembang. Saya selalu berusaha menjalankan setiap tugas dengan serius, menyelesaikan masalah dengan teliti, dan belajar dari setiap pengalaman yang saya dapatkan.</p>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <div class="logo-icon">G</div>
+                <div class="logo-text">Galang<span>.</span></div>
+            </a>
 
-	<p>Bagi saya, belajar bukan hanya soal memperoleh nilai atau gelar, tetapi lebih tentang memahami dunia, menemukan solusi untuk permasalahan nyata, dan memberikan kontribusi positif bagi lingkungan sekitar. Melalui bidang informatika, saya ingin menciptakan inovasi dan aplikasi yang bermanfaat, yang dapat mempermudah kehidupan manusia sekaligus menjaga keamanan data digital. Dengan tekad, minat yang kuat, dan semangat untuk terus berkembang, saya berharap dapat melangkah lebih jauh di bidang keamanan siber dan informatika, serta memberikan kontribusi nyata melalui proyek-proyek yang bermanfaat, inovatif, dan aman bagi semua orang.</p>
-</div>
-		<div class="sidebar">
-    <h3>Tentang Penulis</h3>
-    <img src="g.jpg" alt="Foto Galang Suryakusuma">
-    
-    <p class="sidebar-text">Nama saya Galang Suryakusuma, seorang siswa kelas XII yang memiliki minat besar di bidang informatika, khususnya keamanan siber (cyber security) dan teknologi blockchain. Sejak kecil, saya selalu tertarik dengan dunia teknologi karena sifatnya yang terus berkembang, menantang, dan penuh inovasi. Ketertarikan ini membuat saya gemar mengeksplorasi cara kerja komputer, perangkat lunak, serta sistem digital, mulai dari dasar pemrograman, pengolahan data, hingga mekanisme keamanan yang melindungi informasi penting dari berbagai ancaman digital. Minat ini bukan sekadar hobi, melainkan menjadi motivasi utama saya untuk terus belajar dan mengasah kemampuan agar kelak dapat berkontribusi secara nyata di bidang teknologi informasi.</p>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="portofolio.html">Portofolio</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projek.html">Projek</a></li>
+                <li><a href="kontak.html" class="nav-cta">Contact</a></li>
+            </ul>
 
-    <p class="sidebar-text">Selama masa sekolah, saya berkesempatan mengikuti berbagai kegiatan yang mendukung pengembangan minat saya. Salah satunya adalah Proyek Penguatan Profil Pelajar Pancasila (P5), di mana saya dan tim berhasil mengembangkan aplikasi QRIS Parkir. Aplikasi ini merupakan sistem parkir digital yang menggunakan teknologi barcode untuk mempermudah proses identifikasi kendaraan melalui nomor SIM dan foto pemilik. Proyek ini memberikan pengalaman berharga bagi saya dalam merancang alur aplikasi, mengelola data dengan aman, serta memahami pentingnya kerja sama tim. Selain itu, saya belajar bagaimana menghadapi tantangan teknis, menyelesaikan masalah yang kompleks, dan memastikan sistem yang dikembangkan dapat berjalan dengan aman dan efisien.</p>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-    <p class="sidebar-text">Selain pengalaman dalam pengembangan aplikasi, saya juga mulai mendalami teknologi blockchain. Blockchain merupakan sistem penyimpanan data terdesentralisasi yang menawarkan keamanan, transparansi, dan keandalan tinggi. Saya menyadari bahwa blockchain dapat menjadi solusi untuk menjaga integritas data dalam berbagai sistem digital, mulai dari transaksi finansial hingga pengelolaan identitas digital. Keterampilan memahami blockchain dan keamanan siber menjadi kombinasi yang kuat, karena keduanya sangat relevan dalam menghadapi tantangan dunia digital modern, seperti peretasan, pencurian data, dan manipulasi informasi.</p>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    Available for opportunities
+                </div>
+                <h1>
+                    Hi, I'm<br>
+                    <span class="gradient-text">Galang</span><br>
+                    <span class="gradient-text-2">Suryakusuma</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Siswa kelas XII yang passionate di bidang <strong style="color: var(--accent);">Cyber Security</strong> & <strong style="color: var(--primary-light);">Blockchain Technology</strong>. Membangun masa depan digital yang aman.
+                </p>
+                <div class="hero-buttons">
+                    <a href="projek.html" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> Lihat Projek
+                    </a>
+                    <a href="about.html" class="btn btn-outline">
+                        <i class="fas fa-user"></i> Tentang Saya
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">5<span>+</span></div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">2<span>+</span></div>
+                        <div class="stat-label">Years Learning</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Passion</div>
+                    </div>
+                </div>
+            </div>
 
-    <p class="sidebar-text">Saya percaya bahwa teknologi tidak hanya sekadar alat, tetapi juga merupakan sarana untuk memberikan dampak positif bagi masyarakat. Oleh karena itu, saya bertekad untuk terus mempelajari teknologi terbaru, merancang sistem yang aman dan efisien, serta memanfaatkan kemampuan saya untuk menciptakan solusi yang bermanfaat bagi banyak orang. Saya ingin dapat berkontribusi pada pengembangan sistem digital yang tidak hanya praktis, tetapi juga dapat diandalkan dan melindungi data pengguna dari ancaman siber.</p>
+            <div class="hero-visual">
+                <div class="hero-image-wrapper">
+                    <div class="hero-image">
+                        <img src="g.jpg" alt="Galang Suryakusuma">
+                    </div>
+                    <div class="hero-image-glow"></div>
+                    <div class="floating-card">
+                        <i class="fas fa-shield-halved"></i>
+                        <span>Cyber Security</span>
+                    </div>
+                    <div class="floating-card">
+                        <i class="fas fa-cubes"></i>
+                        <span>Blockchain</span>
+                    </div>
+                    <div class="floating-card">
+                        <i class="fas fa-code"></i>
+                        <span>Developer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <p class="sidebar-text">Selain fokus pada teknologi, saya juga berusaha membentuk karakter yang disiplin, jujur, dan bertanggung jawab. Saya meyakini bahwa kesuksesan di bidang teknologi bukan hanya ditentukan oleh pengetahuan, tetapi juga oleh etos kerja, ketekunan, dan kemampuan beradaptasi dengan cepat terhadap perubahan teknologi. Saya selalu berusaha belajar dari setiap pengalaman, mengembangkan kemampuan problem-solving, dan menghadapi tantangan dengan sikap positif.</p>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Tentang Saya</div>
+                <h2 class="section-title">Mengenal Lebih Dekat</h2>
+                <p class="section-desc">Perjalanan saya di dunia teknologi dan keamanan siber</p>
+            </div>
 
-    <p class="sidebar-text">Cita-cita saya adalah menjadi seorang ahli keamanan siber (cyber security specialist) sekaligus pengembang sistem berbasis blockchain yang mampu melindungi data, meningkatkan keamanan digital, dan memberikan manfaat nyata bagi masyarakat. Dengan tekad yang kuat, semangat belajar tanpa henti, serta rasa ingin tahu yang tinggi, saya berharap dapat terus berkembang dalam dunia informatika, menciptakan inovasi yang bermanfaat, dan memberikan kontribusi yang berdampak positif bagi dunia digital dan masyarakat luas.</p>
-</div>
+            <div class="about-grid">
+                <div class="about-content reveal-left">
+                    <p>Saya adalah seorang siswa kelas XII yang memiliki minat yang sangat besar di bidang informatika, khususnya dalam keamanan siber atau cyber security. Sejak kecil, saya selalu tertarik dengan dunia teknologi, perangkat keras, dan perangkat lunak. Rasa ingin tahu saya terhadap cara kerja komputer, sistem digital, dan jaringan membuat saya senang mempelajari berbagai hal tentang teknologi, mulai dari pemrograman, pengolahan data, hingga perlindungan sistem dari berbagai ancaman.</p>
 
+                    <p>Selama di sekolah, saya mendapatkan kesempatan untuk mengembangkan minat dan kemampuan saya melalui berbagai kegiatan akademik dan proyek, salah satunya melalui Proyek Penguatan Profil Pelajar Pancasila (P5). Dalam proyek tersebut, saya bekerja bersama tim untuk membuat aplikasi QRIS Parkir, yaitu sebuah sistem parkir digital yang menggunakan teknologi barcode.</p>
+
+                    <div class="about-highlight">
+                        <p>"Bagi saya, belajar bukan hanya soal memperoleh nilai atau gelar, tetapi lebih tentang memahami dunia, menemukan solusi untuk permasalahan nyata, dan memberikan kontribusi positif bagi lingkungan sekitar."</p>
+                    </div>
+
+                    <p>Proyek ini mengajarkan saya banyak hal, termasuk bagaimana bekerja dalam tim, merancang alur aplikasi yang efektif, mengelola data dengan aman, serta memahami pentingnya keamanan informasi dalam sistem digital. Melalui pengalaman ini, saya semakin menyadari betapa krusialnya keamanan siber di era digital saat ini.</p>
+
+                    <p>Selain fokus pada teknologi, saya juga berusaha untuk membangun karakter yang disiplin, jujur, dan bertanggung jawab. Saya meyakini bahwa keberhasilan bukan hanya ditentukan oleh kemampuan akademik, tetapi juga oleh sikap, etos kerja, dan semangat untuk terus berkembang.</p>
+                </div>
+
+                <div class="reveal-right">
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <div class="skill-icon"><i class="fas fa-shield-halved"></i></div>
+                            <h4>Cyber Security</h4>
+                            <p>Perlindungan sistem dan data dari ancaman digital</p>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon"><i class="fas fa-cubes"></i></div>
+                            <h4>Blockchain</h4>
+                            <p>Teknologi desentralisasi untuk keamanan data</p>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon"><i class="fas fa-code"></i></div>
+                            <h4>Programming</h4>
+                            <p>Pengembangan aplikasi dan sistem digital</p>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+                            <h4>Networking</h4>
+                            <p>Pemahaman jaringan komputer dan infrastruktur</p>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon"><i class="fas fa-database"></i></div>
+                            <h4>Data Management</h4>
+                            <p>Pengelolaan dan pengamanan data digital</p>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon"><i class="fas fa-users"></i></div>
+                            <h4>Teamwork</h4>
+                            <p>Kolaborasi efektif dalam pengembangan proyek</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Project -->
+    <section id="project" style="background: var(--dark-2);">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Featured Project</div>
+                <h2 class="section-title">Proyek Unggulan</h2>
+                <p class="section-desc">Karya terbaik yang telah saya kembangkan</p>
+            </div>
+
+            <div class="project-card reveal" style="max-width: 800px; margin: 0 auto;">
+                <div class="project-image">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+                <div class="project-info">
+                    <span class="project-tag">P5 Project</span>
+                    <h3>QRIS Parkir — Sistem Parkir Digital</h3>
+                    <p>Aplikasi sistem parkir digital yang menggunakan teknologi barcode untuk mempermudah proses identifikasi kendaraan melalui nomor SIM dan foto pemilik. Sistem ini membuat proses identifikasi menjadi lebih cepat, aman, dan efisien. Dikembangkan bersama tim dalam rangka Proyek Penguatan Profil Pelajar Pancasila (P5).</p>
+                    <div class="project-tech">
+                        <span>QR Code</span>
+                        <span>Barcode Scanner</span>
+                        <span>Data Security</span>
+                        <span>Digital Identity</span>
+                        <span>UI/UX</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey / Timeline -->
+    <section id="journey">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Perjalanan</div>
+                <h2 class="section-title">Journey & Experience</h2>
+                <p class="section-desc">Milestone perjalanan saya di dunia teknologi</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"><i class="fas fa-laptop-code"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">// Awal Mula</div>
+                        <h4>Ketertarikan pada Teknologi</h4>
+                        <p>Sejak kecil tertarik dengan cara kerja komputer, perangkat keras, dan perangkat lunak. Mulai mempelajari dasar-dasar pemrograman dan sistem digital secara otodidak.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"><i class="fas fa-shield-halved"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">// Penemuan Passion</div>
+                        <h4>Mendalami Cyber Security</h4>
+                        <p>Menemukan minat mendalam di bidang keamanan siber. Mulai mempelajari tentang perlindungan data, ancaman digital, dan etika keamanan informasi.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"><i class="fas fa-qrcode"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">// Proyek P5</div>
+                        <h4>Mengembangkan QRIS Parkir</h4>
+                        <p>Bersama tim, berhasil mengembangkan aplikasi QRIS Parkir sebagai sistem parkir digital menggunakan teknologi barcode dalam Proyek Penguatan Profil Pelajar Pancasila.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"><i class="fas fa-cubes"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">// Eksplorasi Baru</div>
+                        <h4>Menjelajahi Blockchain</h4>
+                        <p>Mulai mendalami teknologi blockchain sebagai solusi keamanan data. Memahami konsep desentralisasi, transparansi, dan integritasnya dalam sistem digital modern.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"><i class="fas fa-rocket"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">// Masa Depan</div>
+                        <h4>Menuju Profesional</h4>
+                        <p>Bertekad menjadi Cyber Security Specialist sekaligus pengembang sistem berbasis blockchain yang mampu melindungi data dan meningkatkan keamanan digital.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values / Info Cards -->
+    <section id="values" style="background: var(--dark-2);">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Core Values</div>
+                <h2 class="section-title">Nilai & Prinsip</h2>
+                <p class="section-desc">Fondasi yang membentuk karakter dan etos kerja saya</p>
+            </div>
+
+            <div class="info-cards">
+                <div class="info-card reveal">
+                    <div class="info-card-icon"><i class="fas fa-brain"></i></div>
+                    <h4>Rasa Ingin Tahu</h4>
+                    <p>Selalu haus akan pengetahuan baru dan terus mengeksplorasi teknologi terbaru di bidang informatika dan keamanan siber.</p>
+                </div>
+                <div class="info-card reveal">
+                    <div class="info-card-icon"><i class="fas fa-lock"></i></div>
+                    <h4>Etika Digital</h4>
+                    <p>Memahami bahwa kemampuan teknis harus diimbangi dengan pemahaman etika, perlindungan data, dan tanggung jawab digital.</p>
+                </div>
+                <div class="info-card reveal">
+                    <div class="info-card-icon"><i class="fas fa-handshake"></i></div>
+                    <h4>Kolaborasi</h4>
+                    <p>Percaya bahwa kerja sama tim adalah kunci keberhasilan dalam setiap proyek dan pengembangan inovasi teknologi.</p>
+                </div>
+                <div class="info-card reveal">
+                    <div class="info-card-icon"><i class="fas fa-bullseye"></i></div>
+                    <h4>Disiplin</h4>
+                    <p>Menjalankan setiap tugas dengan serius, menyelesaikan masalah dengan teliti, dan konsisten dalam upaya pengembangan diri.</p>
+                </div>
+                <div class="info-card reveal">
+                    <div class="info-card-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h4>Inovasi</h4>
+                    <p>Bersemangat menciptakan solusi kreatif yang bermanfaat, praktis, dan aman untuk mempermudah kehidupan digital manusia.</p>
+                </div>
+                <div class="info-card reveal">
+                    <div class="info-card-icon"><i class="fas fa-heart"></i></div>
+                    <h4>Kontribusi</h4>
+                    <p>Berkomitmen untuk memberikan dampak positif bagi masyarakat melalui proyek-proyek teknologi yang inovatif dan bermanfaat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section reveal">
+        <div class="container">
+            <div class="quote-content">
+                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="quote-text">
+                    "Teknologi tidak hanya sekadar alat, tetapi juga merupakan sarana untuk memberikan dampak positif bagi masyarakat dan melindungi masa depan digital kita."
+                </p>
+                <p class="quote-author">— Galang Suryakusuma</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box reveal">
+                <h2>Mari Berkolaborasi!</h2>
+                <p>Tertarik untuk bekerja sama atau ingin mengetahui lebih lanjut tentang proyek-proyek saya? Jangan ragu untuk menghubungi saya.</p>
+                <div class="cta-buttons">
+                    <a href="kontak.html" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Hubungi Saya
+                    </a>
+                    <a href="portofolio.html" class="btn btn-outline">
+                        <i class="fas fa-folder-open"></i> Lihat Portofolio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">G</div>
+                        <div class="logo-text">Galang<span>.</span></div>
+                    </a>
+                    <p>Siswa kelas XII yang bersemangat dalam bidang Cyber Security dan Blockchain Technology. Membangun masa depan digital yang aman dan inovatif.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navigasi</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="portofolio.html">Portofolio</a></li>
+                        <li><a href="projek.html">Projek</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Minat</h4>
+                    <ul>
+                        <li><a href="#">Cyber Security</a></li>
+                        <li><a href="#">Blockchain</a></li>
+                        <li><a href="#">Programming</a></li>
+                        <li><a href="#">Networking</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Kontak</h4>
+                    <ul>
+                        <li><a href="kontak.html"><i class="fas fa-envelope" style="margin-right: 8px;"></i>Email</a></li>
+                        <li><a href="#"><i class="fab fa-whatsapp" style="margin-right: 8px;"></i>WhatsApp</a></li>
+                        <li><a href="#"><i class="fab fa-telegram" style="margin-right: 8px;"></i>Telegram</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 <a href="#">Galang Suryakusuma</a>. All rights reserved.</p>
+                <p>Built with <i class="fas fa-heart" style="color: #E040FB; margin: 0 4px;"></i> and passion</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // ===== LOADER =====
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1200);
+        });
+
+        // ===== CUSTOM CURSOR =====
+        const cursorDot = document.getElementById('cursorDot');
+        const cursorRing = document.getElementById('cursorRing');
+
+        document.addEventListener('mousemove', (e) => {
+            cursorDot.style.left = e.clientX - 4 + 'px';
+            cursorDot.style.top = e.clientY - 4 + 'px';
+            cursorRing.style.left = e.clientX - 20 + 'px';
+            cursorRing.style.top = e.clientY - 20 + 'px';
+        });
+
+        document.querySelectorAll('a, button, .skill-card, .info-card, .project-card').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorRing.style.transform = 'scale(1.5)';
+                cursorRing.style.borderColor = 'rgba(0, 212, 170, 0.5)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorRing.style.transform = 'scale(1)';
+                cursorRing.style.borderColor = 'rgba(108, 60, 225, 0.5)';
+            });
+        });
+
+        // ===== NAVBAR SCROLL =====
+        const navbar = document.getElementById('navbar');
+        const scrollProgress = document.getElementById('scrollProgress');
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            // Navbar background
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Scroll progress
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            scrollProgress.style.width = scrolled + '%';
+
+            // Scroll to top button
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Scroll to top
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ===== MOBILE MENU =====
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+
+        // Close menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // ===== SCROLL REVEAL =====
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        const heroTitle = document.querySelector('.hero h1');
+        if (heroTitle) {
+            heroTitle.style.opacity = '1';
+        }
+    </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
