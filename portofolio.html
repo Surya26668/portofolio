@@ -1,314 +1,400 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portofolio</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif; 
-      background: #f8f9fa; 
-      color: #333; 
-      margin: 0; 
-      padding: 0;
-    }
-    header {
-      background: #007bff;
-      color: white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1); 
-      padding: 18px 4%; 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center;
-    }
-    header h1 {
-      margin: 0; 
-      font-size: 1.5em;
-    }
-
-
-header nav {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 10px;
-}
-
-header nav a {
-  font-weight: 800;         
-  font-size: 1.25em;     /* PERBESAR */
-  letter-spacing: -0.5px; /* LEBIH DEMPET */
-  color: #ffffff;
-  padding: 8px 14px;     /* lebih enak */
-  border-radius: 8px;
-  text-decoration: none;
-  transition: 0.2s;
-}
-
-header nav a:hover {
-  background: #ff2d2d;      /* hover merah */
-  color: white;
-}
-
-/* item aktif (misal halaman ini) */
-header nav a.active {
-  background: #ff2d2d;
-  color: #fff;
-  font-weight: 900;
-}
-@media (max-width: 600px) {
-  header nav {
-    flex-wrap: wrap;     /* BIARKAN turun di mobile */
-    justify-content: center;
-  }
-
-  header nav a {
-    font-size: 1em;
-    padding: 8px 10px;
-  }
-	  }
-
-/* --- RESPONSIVE NAVBAR HP --- */
-@media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-    padding: 15px;
-  }
-
-  header nav {
-    justify-content: center;
-  }
-
-  header nav a {
-    font-size: 1.05em;
-    padding: 8px 14px;
-  }
-	  }
-    main {
-      max-width: 900px; 
-      margin: 40px auto; 
-      padding: 0 20px;
-    }
-    section {
-      background: #fff; 
-      padding: 20px; 
-      border-radius: 10px; 
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
-      margin-bottom: 30px;
-    }
-    img.profile {
-      width: 120px; 
-      height: 120px; 
-      border-radius: 50%; 
-      object-fit: cover; 
-      border: 4px solid #eee;
-    }
-    h2, h3 {
-      margin-top: 0; 
-      color: #222;
-    }
-    .hero {
-      display: flex; 
-      flex-wrap: wrap; 
-      align-items: center; 
-      gap: 20px;
-    }
-    .hero button, .hero a.button {
-      background: #007bff; 
-      color: #fff; 
-      padding: 8px 16px; 
-      border: none; 
-      border-radius: 6px; 
-      cursor: pointer; 
-      text-decoration: none; 
-      font-size: 0.9em;
-    }
-    .hero a.secondary {
-      background: #e9ecef; 
-      color: #333;
-    }
-    ul, li {
-    	display: inline-block;
-		margin-top: 20px;
-		margin-right: 12px;
-		margin-bottom: 0px;
-		font-size: 20px;
-      	list-style: none;
-    }
-    .list li {
-      margin-bottom: 6px;
-    }
-    .projects article {
-      border-bottom: 1px solid #ddd; 
-      padding: 10px 0;
-    }
-    .skills div {
-      border: 1px solid #ddd; 
-      border-radius: 6px; 
-      padding: 8px; 
-      margin: 4px; 
-      display: inline-block; 
-      font-size: 0.9em;
-    }
-    form input, form textarea {
-      width: 100%; 
-      padding: 8px; 
-      margin-bottom: 10px; 
-      border: 1px solid #ccc; 
-      border-radius: 6px; 
-      font-size: 0.9em;
-    }
-    form button {
-      background: #007bff; 
-      color: #fff; 
-      border: none; 
-      padding: 10px; 
-      width: 100%; 
-      border-radius: 6px; 
-      cursor: pointer;
-    }
-    footer {
-      text-align: center; 
-      font-size: 0.85em; 
-      color: #666; 
-      margin-top: 40px; 
-      padding-bottom: 20px;
-    }
-  </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portofolio | Galang Suryakusuma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  (function() {
-    emailjs.init("dungS6V9J598adAOs"); // Ganti dengan kunci publik EmailJS Anda
-  })();
-
-  function sendMail(event) {
-    event.preventDefault();
-    emailjs.sendForm('service_wysanw9', 'template_j1pcjmn', event.target)
-      .then(function() {
-        alert('Pesan berhasil dikirim!');
-      }, function(error) {
-        alert('Gagal mengirim pesan: ' + JSON.stringify(error));
-      });
-  }
-</script>
-
-
 <body>
-  <header>
-    <div>
-      <h1>Galang Suryakusuma</h1>
-      <p style="font-size: 0.8em; margin: 4px 0 0;">Pelamar Beasiswa Perguruan Tinggi</p>
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">LOADING</div>
+        </div>
     </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="#about">Tentang</a>
-      <a href="#education">Pendidikan</a>
-      <a href="#projects">Rencana & minat Proyek</a>
-      <a href="#achievements">Prestasi</a>
-      <a href="#project">Proyek</a>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero">
-      <img src="g.jpg" alt="Foto Profil" class="profile">
-      <div>
-        <h2>Halo — Saya Galang Suryakusuma</h2>
-        <p>Calon mahasiswa jurusan Teknik informatika/ Ilmu komputer dengan minat kuat pada pengembangan Web3,
-          blockchain dan teknologi desentralisasi. Saya bersemangat untuk terus belajar dan berkontribusi dalam
-          menciptakan inovasi berbasis blockchain masa depan.</p>
-        <p>
-          <a href="0.pdf" class="button secondary">Unduh CV (PDF)</a>
-          <a href="kontak.html" class="button">Hubungi Saya</a>
-        </p>
-      </div>
+    <div class="bg-animation">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+    <div class="grid-bg"></div>
+
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">G</div>
+                <div class="logo-text">Galang<span>.</span></div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portofolio.html" class="active">Portofolio</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projek.html">Projek</a></li>
+                <li><a href="kontak.html" class="nav-cta">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-image" style="animation:fadeInUp 0.6s ease forwards;opacity:0;">
+                <img src="g.jpg" alt="Galang Suryakusuma">
+            </div>
+            <div class="page-hero-content">
+                <div style="animation:fadeInUp 0.6s ease 0.1s forwards;opacity:0;">
+                    <span class="tag" style="margin-bottom:16px;">Portofolio</span>
+                </div>
+                <h1 style="animation:fadeInUp 0.6s ease 0.2s forwards;opacity:0;">
+                    Halo — Saya <span class="gradient-text">Galang</span> <span class="gradient-text-2">Suryakusuma</span>
+                </h1>
+                <p style="animation:fadeInUp 0.6s ease 0.3s forwards;opacity:0;">
+                    Calon mahasiswa jurusan Teknik Informatika / Ilmu Komputer dengan minat kuat pada pengembangan Web3, blockchain, dan teknologi desentralisasi. Bersemangat untuk terus belajar dan berkontribusi dalam menciptakan inovasi berbasis blockchain masa depan.
+                </p>
+                <div class="page-hero-buttons" style="animation:fadeInUp 0.6s ease 0.4s forwards;opacity:0;">
+                    <a href="0.pdf" class="btn btn-outline"><i class="fas fa-download"></i> Unduh CV</a>
+                    <a href="kontak.html" class="btn btn-primary"><i class="fas fa-envelope"></i> Hubungi Saya</a>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="about">
-      <h3>Tentang Saya</h3>
-      <p>Saya lulusan SMA Negeri 1 Kendal, Jawa Tengah jurusan IPS dengan nilai rata-rata 90.
-Saya memiliki ketertarikan mendalam pada dunia teknologi, khususnya pengembangan perangkat lunak, blockchain, dan analisis data.
-Saat ini saya fokus mempelajari dasar-dasar pemrograman, pembuatan aplikasi web, dan konsep Web3 secara mandiri.
-Tujuan saya adalah menjadi developer Web3 yang mampu menggabungkan teknologi desentralisasi dengan solusi nyata di bidang pendidikan dan masyarakat.
-</p>
-      <ul class="list">
-        <li><strong>Email:</strong> galangsurya289@gmail.com</li>
-        <li><strong>Telepon:</strong> +62 877-6642-4262</li>
-        <li><strong>Lokasi:</strong> Kendal, Jawa Tengah</li>
-        <li><strong>LinkedIn / GitHub:</strong> github.com/Surya26668</li>
-      </ul>
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Tentang Saya</div>
+                <h2 class="section-title">Profil Singkat</h2>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+                <div class="reveal-left">
+                    <div class="glass-card-static" style="margin-bottom:24px;">
+                        <p style="font-size:15px;color:var(--text-muted);line-height:1.8;text-align:justify;">
+                            Saya lulusan SMA Negeri 1 Kendal, Jawa Tengah jurusan IPS dengan nilai rata-rata 90. Saya memiliki ketertarikan mendalam pada dunia teknologi, khususnya pengembangan perangkat lunak, blockchain, dan analisis data. Saat ini saya fokus mempelajari dasar-dasar pemrograman, pembuatan aplikasi web, dan konsep Web3 secara mandiri.
+                        </p>
+                        <div style="background:var(--glass);border:1px solid var(--glass-border);border-left:3px solid var(--accent);padding:16px 20px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin-top:20px;">
+                            <p style="font-style:italic;color:var(--text);font-size:14px;">Tujuan saya adalah menjadi developer Web3 yang mampu menggabungkan teknologi desentralisasi dengan solusi nyata di bidang pendidikan dan masyarakat.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal-right">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <div class="info-label">Email</div>
+                                <div class="info-value">galangsurya289@gmail.com</div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <div class="info-label">Telepon</div>
+                                <div class="info-value">+62 877-6642-4262</div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-location-dot"></i>
+                            <div>
+                                <div class="info-label">Lokasi</div>
+                                <div class="info-value">Kendal, Jawa Tengah</div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fab fa-github"></i>
+                            <div>
+                                <div class="info-label">GitHub</div>
+                                <div class="info-value">Surya26668</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="education">
-      <h3>Pendidikan</h3>
-      <p><strong>SMA Negeri 1 Kendal — IPS</strong> (2023 — 2025) | Nilai Rata-Rata 90</p>
-      <p>Kegiatan: Klub Teknologi Sekolah, Belajar Mandiri Pemrograman</p>
-      <p><strong>Kursus & Pelatihan:</strong> Kursus Dasar Python (Online, 2024), Pengenalan Blockchain & Web3 (Belajar mandiri melalui dokumentasi Ethereum & Binance, 2025)</p>
+    <section class="section-alt" id="education">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Pendidikan</div>
+                <h2 class="section-title">Riwayat Pendidikan</h2>
+                <p class="section-desc">Latar belakang akademik dan pelatihan</p>
+            </div>
+            <div style="max-width:750px;margin:0 auto;">
+                <div class="edu-card reveal">
+                    <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="edu-info">
+                        <h4>SMA Negeri 1 Kendal — IPS</h4>
+                        <div class="edu-period">2023 — 2025 | Rata-rata: 90</div>
+                        <p>Kegiatan: Klub Teknologi Sekolah, Belajar Mandiri Pemrograman</p>
+                    </div>
+                </div>
+                <div class="edu-card reveal">
+                    <div class="edu-icon"><i class="fas fa-laptop-code"></i></div>
+                    <div class="edu-info">
+                        <h4>Kursus Dasar Python</h4>
+                        <div class="edu-period">Online — 2024</div>
+                        <p>Mempelajari fundamental pemrograman Python termasuk struktur data, fungsi, dan pengelolaan file.</p>
+                    </div>
+                </div>
+                <div class="edu-card reveal">
+                    <div class="edu-icon"><i class="fas fa-cubes"></i></div>
+                    <div class="edu-info">
+                        <h4>Pengenalan Blockchain & Web3</h4>
+                        <div class="edu-period">Belajar Mandiri — 2025</div>
+                        <p>Belajar melalui dokumentasi Ethereum & Binance. Memahami konsep smart contract, DApp, dan teknologi desentralisasi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="projects" class="projects">
-      <h3>Rencana & minat proyek</h3>
-      <article>
-        <p><em>Oktober 2026</em></p>
-        <p>🚀 Belajar membuat DApp sederhana (Decentralized App) menggunakan Solidity & Web3.js</p>
-      </article>
-      <article>
-        <p><em>Desember 2025</em></p>
-        <p>📊 Membangun portofolio pribadi di GitHub dengan proyek open source kecil</p>
-      </article>
-      <article>
-        <p><em>Januari - Maret 2026</em></p>
-        <p>💡 Eksplorasi smart contract untuk sistem kehadiran atau donasi berbasis blockchain</p>
-      </article>
-	</section>
+    <section id="projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Proyek Selesai</div>
+                <h2 class="section-title">Proyek Yang Sudah Jadi</h2>
+                <p class="section-desc">Karya nyata yang telah saya kembangkan</p>
+            </div>
+            <div class="project-grid">
+                <div class="project-card reveal">
+                    <div class="project-card-header" style="background:linear-gradient(135deg,#6C3CE1,#00D4AA);">
+                        <i class="fas fa-motorcycle"></i>
+                        <span class="project-date">Feb 2025</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="tag" style="margin-bottom:12px;">Aplikasi P5</span>
+                        <h3>QRIS Parkir — Sistem Parkir Digital</h3>
+                        <p>Aplikasi dengan fitur pemindaian barcode sebagai sistem parkir digital modern. Menampilkan data identitas pengendara seperti nomor SIM dan foto terdaftar saat dipindai. Memudahkan petugas dalam verifikasi dan meningkatkan keamanan kendaraan.</p>
+                        <div class="project-card-tags">
+                            <span>QR Code</span>
+                            <span>Barcode</span>
+                            <span>Digital Identity</span>
+                            <span>Security</span>
+                        </div>
+                    </div>
+                </div>
 
-		<section id="project" class="project">
-	  <h3>Proyek Sudah Jadi</h3>
-      <article>
-        <p><em>February 2025</em></p>
-        <p>🛵 Sebuah aplikasi yang dilengkapi dengan fitur pemindaian barcode sebagai sistem parkir digital modern. Ketika barcode pada tiket atau kartu parkir dipindai, aplikasi secara otomatis menampilkan data identitas pengendara, seperti nomor SIM dan foto terdaftar. Teknologi ini memudahkan petugas dalam melakukan verifikasi, mempercepat proses masuk-keluar kendaraan, serta meningkatkan keamanan dengan memastikan setiap kendaraan terhubung dengan identitas yang valid.</p>
-      </article>
-      <article>
-        <p><em>Januari 2025</em></p>
-        <p>📊 Sebuah Sistem Manajemen Kontak yang dibangun menggunakan Python dengan fokus pada pengolahan data kontak secara cepat dan akurat. Aplikasi ini menyediakan fitur konversi data ke format VCF, pembagian kontak ke dalam banyak file, penomoran otomatis, serta opsi reset nomor antar file. Selain itu, sistem ini terhubung dengan Telegram bot sehingga pengguna dapat meng-upload file .txt, mengkonversinya, dan mengunduh hasilnya secara instan melalui antarmuka bot. Sistem ini dirancang untuk pengguna yang membutuhkan manajemen kontak dalam jumlah besar dengan proses yang praktis.</p>
-      </article>
-      <article>
-        <p><em>November 2025</em></p>
-        <p>💻 Website Portofolio Pribadi yang berfungsi sebagai pusat informasi mengenai profil, pengalaman belajar, dan proyek yang saya kerjakan. Platform ini dikembangkan secara statis dan menyoroti ketertarikan saya pada bidang cyber security, dengan tujuan memperkenalkan kemampuan dan perkembangan saya di dunia teknologi.</p>
-	  </article>
+                <div class="project-card reveal">
+                    <div class="project-card-header" style="background:linear-gradient(135deg,#E040FB,#6C3CE1);">
+                        <i class="fas fa-address-book"></i>
+                        <span class="project-date">Jan 2025</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="tag tag-pink" style="margin-bottom:12px;">Python App</span>
+                        <h3>Sistem Manajemen Kontak</h3>
+                        <p>Sistem manajemen kontak berbasis Python dengan fitur konversi data ke format VCF, pembagian kontak ke banyak file, penomoran otomatis, dan integrasi Telegram bot untuk upload dan download otomatis.</p>
+                        <div class="project-card-tags">
+                            <span>Python</span>
+                            <span>Telegram Bot</span>
+                            <span>VCF</span>
+                            <span>Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <div class="project-card-header" style="background:linear-gradient(135deg,#00D4AA,#0A0A1A);">
+                        <i class="fas fa-globe"></i>
+                        <span class="project-date">Nov 2025</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="tag tag-accent" style="margin-bottom:12px;">Website</span>
+                        <h3>Website Portofolio Pribadi</h3>
+                        <p>Website portofolio pribadi sebagai pusat informasi profil, pengalaman belajar, dan proyek. Dikembangkan secara statis dengan fokus pada bidang cyber security.</p>
+                        <div class="project-card-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>Responsive</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-alt" id="plans">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Rencana</div>
+                <h2 class="section-title">Rencana & Minat Proyek</h2>
+                <p class="section-desc">Target pengembangan yang ingin saya capai</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"><i class="fas fa-rocket"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">// Oktober 2026</div>
+                        <h4>Membuat DApp Sederhana</h4>
+                        <p>Belajar membuat Decentralized App menggunakan Solidity & Web3.js sebagai fondasi pengembangan blockchain.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"><i class="fab fa-github"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">// Desember 2025</div>
+                        <h4>Portofolio GitHub Open Source</h4>
+                        <p>Membangun portofolio pribadi di GitHub dengan proyek open source kecil untuk kontribusi komunitas developer.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"><i class="fas fa-file-contract"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">// Januari — Maret 2026</div>
+                        <h4>Smart Contract Exploration</h4>
+                        <p>Eksplorasi smart contract untuk sistem kehadiran atau donasi berbasis blockchain sebagai solusi nyata.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="achievements">
-      <h3>Prestasi & Penghargaan</h3>
-      <ul class="list">
-        <li><strong></strong> — </li>
-      </ul>
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Prestasi</div>
+                <h2 class="section-title">Prestasi & Penghargaan</h2>
+            </div>
+            <div class="glass-card-static reveal" style="max-width:600px;margin:0 auto;">
+                <div class="achievement-empty">
+                    <i class="fas fa-trophy"></i>
+                    <p>Prestasi akan ditambahkan seiring perjalanan karier dan pendidikan. Tetap semangat belajar dan berkarya!</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="skills">
-      <h3>Kemampuan</h3>
-      <div class="skills">
-        <div>Pemrograman: Python (pemula), JavaScript (pemula) Web: HTML, CSS, dasar React</div>
-        <div>Blockchain: Pengenalan Solidity, Web3.js, MetaMask</div>
-        <div>Analisis Data: Excel, dasar pandas</div>
-        <div>Soft Skill: Disiplin, cepat belajar, berpikir logis, kerja mandiri</div>
-        <div>Bahasa: Indonesia (aktif), Inggris (pemula)</div>
-      </div>
-	</section>
-    <footer>
-      © <script>document.write(new Date().getFullYear())</script> Galang Suryakusuma. Oktober 2025.
+    <section class="section-alt" id="skills">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Kemampuan</div>
+                <h2 class="section-title">Skills & Tools</h2>
+                <p class="section-desc">Teknologi dan kemampuan yang saya kuasai</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;">
+                <div class="glass-card reveal">
+                    <div class="icon-box"><i class="fas fa-code"></i></div>
+                    <h4 style="font-size:16px;font-weight:600;color:var(--text-bright);margin-bottom:16px;">Programming & Web</h4>
+                    <div class="skills-flex">
+                        <span class="skill-tag"><i class="fab fa-python"></i>Python</span>
+                        <span class="skill-tag"><i class="fab fa-js"></i>JavaScript</span>
+                        <span class="skill-tag"><i class="fab fa-html5"></i>HTML</span>
+                        <span class="skill-tag"><i class="fab fa-css3-alt"></i>CSS</span>
+                        <span class="skill-tag"><i class="fab fa-react"></i>React (dasar)</span>
+                    </div>
+                </div>
+                <div class="glass-card reveal">
+                    <div class="icon-box"><i class="fas fa-cubes"></i></div>
+                    <h4 style="font-size:16px;font-weight:600;color:var(--text-bright);margin-bottom:16px;">Blockchain & Web3</h4>
+                    <div class="skills-flex">
+                        <span class="skill-tag"><i class="fas fa-file-contract"></i>Solidity</span>
+                        <span class="skill-tag"><i class="fas fa-link"></i>Web3.js</span>
+                        <span class="skill-tag"><i class="fas fa-wallet"></i>MetaMask</span>
+                        <span class="skill-tag"><i class="fab fa-ethereum"></i>Ethereum</span>
+                    </div>
+                </div>
+                <div class="glass-card reveal">
+                    <div class="icon-box"><i class="fas fa-chart-bar"></i></div>
+                    <h4 style="font-size:16px;font-weight:600;color:var(--text-bright);margin-bottom:16px;">Data & Tools</h4>
+                    <div class="skills-flex">
+                        <span class="skill-tag"><i class="fas fa-table"></i>Excel</span>
+                        <span class="skill-tag"><i class="fas fa-database"></i>Pandas (dasar)</span>
+                        <span class="skill-tag"><i class="fab fa-git-alt"></i>Git</span>
+                    </div>
+                </div>
+                <div class="glass-card reveal">
+                    <div class="icon-box"><i class="fas fa-star"></i></div>
+                    <h4 style="font-size:16px;font-weight:600;color:var(--text-bright);margin-bottom:16px;">Soft Skills</h4>
+                    <div class="skills-flex">
+                        <span class="skill-tag"><i class="fas fa-bullseye"></i>Disiplin</span>
+                        <span class="skill-tag"><i class="fas fa-bolt"></i>Cepat Belajar</span>
+                        <span class="skill-tag"><i class="fas fa-brain"></i>Berpikir Logis</span>
+                        <span class="skill-tag"><i class="fas fa-user"></i>Kerja Mandiri</span>
+                        <span class="skill-tag"><i class="fas fa-language"></i>Indonesia</span>
+                        <span class="skill-tag"><i class="fas fa-globe"></i>English (basic)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding:100px 0;">
+        <div class="container">
+            <div class="reveal" style="background:linear-gradient(135deg,var(--dark-3),var(--dark-4));border:1px solid var(--glass-border);border-radius:24px;padding:60px;text-align:center;position:relative;overflow:hidden;">
+                <h2 style="font-size:36px;font-weight:800;color:var(--text-bright);margin-bottom:16px;letter-spacing:-1px;position:relative;">Tertarik Berkolaborasi?</h2>
+                <p style="font-size:16px;color:var(--text-muted);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;position:relative;">Saya selalu terbuka untuk peluang baru, kolaborasi, dan diskusi tentang teknologi.</p>
+                <div style="display:flex;justify-content:center;gap:16px;position:relative;flex-wrap:wrap;">
+                    <a href="kontak.html" class="btn btn-primary"><i class="fas fa-envelope"></i> Hubungi Saya</a>
+                    <a href="index.html" class="btn btn-outline"><i class="fas fa-home"></i> Kembali ke Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">G</div>
+                        <div class="logo-text">Galang<span>.</span></div>
+                    </a>
+                    <p>Siswa kelas XII yang bersemangat dalam bidang Cyber Security dan Blockchain Technology.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigasi</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="portofolio.html">Portofolio</a></li>
+                        <li><a href="projek.html">Projek</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Minat</h4>
+                    <ul>
+                        <li><a href="#">Cyber Security</a></li>
+                        <li><a href="#">Blockchain</a></li>
+                        <li><a href="#">Programming</a></li>
+                        <li><a href="#">Networking</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontak</h4>
+                    <ul>
+                        <li><a href="kontak.html"><i class="fas fa-envelope" style="margin-right:8px;"></i>Email</a></li>
+                        <li><a href="#"><i class="fab fa-whatsapp" style="margin-right:8px;"></i>WhatsApp</a></li>
+                        <li><a href="#"><i class="fab fa-telegram" style="margin-right:8px;"></i>Telegram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 <a href="#">Galang Suryakusuma</a>. All rights reserved.</p>
+                <p>Built with <i class="fas fa-heart" style="color:#E040FB;margin:0 4px;"></i> and passion</p>
+            </div>
+        </div>
     </footer>
-  </main>
+
+    <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
