@@ -1,59 +1,323 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Projek - Galang Suryakusuma</title>
-	<style>
-		body{background-color: mintcream;}
-		.container{width:960px;margin:auto;background-color:linen;}
-		.header{background-color:#007bff;padding:10px;}
-		.header ul li{display:inline-block;margin-right:12px;font-size:20px;}
-		.header a{text-decoration:none;color:white;padding:3px;}
-		.header a:hover{background-color:red;color:white;}
-		.main{padding:20px;text-align:justify;}
-		.fother{background-color:#007bff;padding:20px;color:white;text-align:center;}
-		h2{color:#007bff;}
-		.project-card{
-			background:white;
-			border-radius:10px;
-			padding:15px;
-			margin-bottom:15px;
-			box-shadow:0 2px 5px rgba(0,0,0,0.1);
-		}
-	</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projek | Galang Suryakusuma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-	<div class="container">
-		<div class="header">
-			<ul>
-				<li><a href="index.html">Home    |</a></li>
-				<li><a href="portofolio.html">Portofolio   |</a></li>
-				<li><a href="about.html">About    |</a></li>
-				<li><a href="#">Projek |</a></li>
-				<li><a href="kontak.html">Contact</a></li>
-			</ul>
-		</div>
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">LOADING</div>
+        </div>
+    </div>
 
-		<div class="main">
-			<h2>💻 Proyek Saya</h2>
-			<div class="project-card">
-				<h3>1. Aplikasi QRIS Parkir</h3>
-				<p>Sebuah aplikasi yang dilengkapi dengan fitur pemindaian barcode sebagai sistem parkir digital modern. Ketika barcode pada tiket atau kartu parkir dipindai, aplikasi secara otomatis menampilkan data identitas pengendara, seperti nomor SIM dan foto terdaftar. Teknologi ini memudahkan petugas dalam melakukan verifikasi, mempercepat proses masuk-keluar kendaraan, serta meningkatkan keamanan dengan memastikan setiap kendaraan terhubung dengan identitas yang valid.</p>
-			</div>
+    <div class="bg-animation">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+    <div class="grid-bg"></div>
 
-			<div class="project-card">
-				<h3>2. Sistem Manajemen Kontak</h3>
-				<p> Sebuah Sistem Manajemen Kontak yang dibangun menggunakan Python dengan fokus pada pengolahan data kontak secara cepat dan akurat. Aplikasi ini menyediakan fitur konversi data ke format VCF, pembagian kontak ke dalam banyak file, penomoran otomatis, serta opsi reset nomor antar file. Selain itu, sistem ini terhubung dengan Telegram bot sehingga pengguna dapat meng-upload file .txt, mengkonversinya, dan mengunduh hasilnya secara instan melalui antarmuka bot. Sistem ini dirancang untuk pengguna yang membutuhkan manajemen kontak dalam jumlah besar dengan proses yang praktis.</p>
-			</div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
 
-			<div class="project-card">
-				<h3>3. Website Portofolio Pribadi</h3>
-				<p>Website Portofolio Pribadi yang berfungsi sebagai pusat informasi mengenai profil, pengalaman belajar, dan proyek yang saya kerjakan. Platform ini dikembangkan secara statis dan menyoroti ketertarikan saya pada bidang cyber security, dengan tujuan memperkenalkan kemampuan dan perkembangan saya di dunia teknologi.</p>
-			</div>
-		</div>
-	</div>
+    <div class="scroll-progress" id="scrollProgress"></div>
 
-	<div class="fother">Dibuat oleh Galang Suryakusuma</div>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">G</div>
+                <div class="logo-text">Galang<span>.</span></div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portofolio.html">Portofolio</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projek.html" class="active">Projek</a></li>
+                <li><a href="kontak.html" class="nav-cta">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container" style="flex-direction:column;text-align:center;">
+            <div style="animation:fadeInUp 0.6s ease forwards;opacity:0;">
+                <span class="tag" style="margin-bottom:20px;font-size:13px;"><i class="fas fa-code" style="margin-right:6px;"></i> My Projects</span>
+            </div>
+            <h1 class="page-hero-content" style="animation:fadeInUp 0.6s ease 0.1s forwards;opacity:0;padding:0;">
+                <span style="font-size:48px;font-weight:800;color:var(--text-bright);letter-spacing:-2px;line-height:1.1;display:block;">
+                    <span class="gradient-text">Proyek</span> Yang Telah
+                    <span class="gradient-text-2">Saya Bangun</span>
+                </span>
+            </h1>
+            <p style="font-size:17px;color:var(--text-muted);max-width:600px;margin:20px auto 0;line-height:1.7;animation:fadeInUp 0.6s ease 0.2s forwards;opacity:0;">
+                Kumpulan karya nyata yang menunjukkan kemampuan dan dedikasi saya di bidang pengembangan teknologi, keamanan siber, dan inovasi digital.
+            </p>
+        </div>
+    </section>
+
+    <section id="completed-projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Selesai</div>
+                <h2 class="section-title">Proyek Sudah Jadi</h2>
+                <p class="section-desc">Aplikasi dan sistem yang telah berhasil dikembangkan</p>
+            </div>
+
+            <div class="project-grid">
+                <div class="project-card reveal">
+                    <div class="project-card-header" style="background:linear-gradient(135deg,#6C3CE1,#00D4AA);">
+                        <i class="fas fa-motorcycle"></i>
+                        <span class="project-date">Feb 2025</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="tag" style="margin-bottom:12px;">Aplikasi P5</span>
+                        <h3>Aplikasi QRIS Parkir</h3>
+                        <p>Sebuah aplikasi yang dilengkapi dengan fitur pemindaian barcode sebagai sistem parkir digital modern. Ketika barcode pada tiket atau kartu parkir dipindai, aplikasi secara otomatis menampilkan data identitas pengendara, seperti nomor SIM dan foto terdaftar. Teknologi ini memudahkan petugas dalam melakukan verifikasi, mempercepat proses masuk-keluar kendaraan, serta meningkatkan keamanan dengan memastikan setiap kendaraan terhubung dengan identitas yang valid.</p>
+                        <div class="project-card-tags">
+                            <span>QR Code</span>
+                            <span>Barcode Scanner</span>
+                            <span>Digital Identity</span>
+                            <span>Security</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <div class="project-card-header" style="background:linear-gradient(135deg,#E040FB,#6C3CE1);">
+                        <i class="fas fa-address-book"></i>
+                        <span class="project-date">Jan 2025</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="tag tag-pink" style="margin-bottom:12px;">Python App</span>
+                        <h3>Sistem Manajemen Kontak</h3>
+                        <p>Sebuah Sistem Manajemen Kontak yang dibangun menggunakan Python dengan fokus pada pengolahan data kontak secara cepat dan akurat. Aplikasi ini menyediakan fitur konversi data ke format VCF, pembagian kontak ke dalam banyak file, penomoran otomatis, serta opsi reset nomor antar file. Selain itu, sistem ini terhubung dengan Telegram bot sehingga pengguna dapat meng-upload file .txt, mengkonversinya, dan mengunduh hasilnya secara instan melalui antarmuka bot.</p>
+                        <div class="project-card-tags">
+                            <span>Python</span>
+                            <span>Telegram Bot</span>
+                            <span>VCF</span>
+                            <span>Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <div class="project-card-header" style="background:linear-gradient(135deg,#00D4AA,#1A1A3E);">
+                        <i class="fas fa-globe"></i>
+                        <span class="project-date">Nov 2025</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="tag tag-accent" style="margin-bottom:12px;">Website</span>
+                        <h3>Website Portofolio Pribadi</h3>
+                        <p>Website Portofolio Pribadi yang berfungsi sebagai pusat informasi mengenai profil, pengalaman belajar, dan proyek yang saya kerjakan. Platform ini dikembangkan secara statis dan menyoroti ketertarikan saya pada bidang cyber security, dengan tujuan memperkenalkan kemampuan dan perkembangan saya di dunia teknologi.</p>
+                        <div class="project-card-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>Responsive</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-alt" id="project-stats">
+        <div class="container">
+            <div class="reveal" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;">
+                <div class="glass-card" style="padding:40px 20px;">
+                    <div style="font-size:42px;font-weight:800;color:var(--text-bright);letter-spacing:-2px;">3</div>
+                    <div style="font-size:13px;color:var(--text-muted);margin-top:8px;text-transform:uppercase;letter-spacing:1px;">Proyek Selesai</div>
+                </div>
+                <div class="glass-card" style="padding:40px 20px;">
+                    <div style="font-size:42px;font-weight:800;letter-spacing:-2px;"><span class="gradient-text">3</span></div>
+                    <div style="font-size:13px;color:var(--text-muted);margin-top:8px;text-transform:uppercase;letter-spacing:1px;">Rencana Proyek</div>
+                </div>
+                <div class="glass-card" style="padding:40px 20px;">
+                    <div style="font-size:42px;font-weight:800;color:var(--accent);letter-spacing:-2px;">5+</div>
+                    <div style="font-size:13px;color:var(--text-muted);margin-top:8px;text-transform:uppercase;letter-spacing:1px;">Teknologi</div>
+                </div>
+                <div class="glass-card" style="padding:40px 20px;">
+                    <div style="font-size:42px;font-weight:800;color:#E040FB;letter-spacing:-2px;">∞</div>
+                    <div style="font-size:13px;color:var(--text-muted);margin-top:8px;text-transform:uppercase;letter-spacing:1px;">Semangat</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech-used">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Teknologi</div>
+                <h2 class="section-title">Tech Stack Yang Digunakan</h2>
+                <p class="section-desc">Teknologi di balik proyek-proyek saya</p>
+            </div>
+            <div class="reveal" style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;max-width:800px;margin:0 auto;">
+                <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+                <span class="skill-tag"><i class="fab fa-html5"></i> HTML5</span>
+                <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+                <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
+                <span class="skill-tag"><i class="fas fa-qrcode"></i> QR / Barcode</span>
+                <span class="skill-tag"><i class="fab fa-telegram"></i> Telegram Bot</span>
+                <span class="skill-tag"><i class="fas fa-shield-halved"></i> Security</span>
+                <span class="skill-tag"><i class="fas fa-database"></i> Data Processing</span>
+                <span class="skill-tag"><i class="fas fa-file-code"></i> VCF Format</span>
+                <span class="skill-tag"><i class="fas fa-mobile-screen"></i> Responsive Design</span>
+                <span class="skill-tag"><i class="fas fa-robot"></i> Bot Automation</span>
+                <span class="skill-tag"><i class="fas fa-id-card"></i> Digital Identity</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-alt" id="future-plans">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Masa Depan</div>
+                <h2 class="section-title">Rencana Proyek Selanjutnya</h2>
+                <p class="section-desc">Target pengembangan yang ingin saya capai</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"><i class="fas fa-rocket"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">// Oktober 2026</div>
+                        <h4>DApp Sederhana (Decentralized App)</h4>
+                        <p>Belajar membuat DApp sederhana menggunakan Solidity & Web3.js sebagai langkah awal memasuki dunia blockchain development.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"><i class="fab fa-github"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">// Desember 2025</div>
+                        <h4>Portofolio Open Source di GitHub</h4>
+                        <p>Membangun portofolio pribadi di GitHub dengan proyek open source kecil untuk berkontribusi pada komunitas developer global.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"><i class="fas fa-file-contract"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">// Januari — Maret 2026</div>
+                        <h4>Smart Contract untuk Sistem Kehadiran / Donasi</h4>
+                        <p>Eksplorasi smart contract berbasis blockchain untuk sistem kehadiran digital atau platform donasi yang transparan dan terdesentralisasi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="project-process">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Proses</div>
+                <h2 class="section-title">Cara Saya Mengerjakan Proyek</h2>
+                <p class="section-desc">Alur kerja dari ide hingga produk jadi</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+                <div class="glass-card reveal" style="text-align:center;position:relative;">
+                    <div style="position:absolute;top:16px;right:20px;font-size:48px;font-weight:900;color:var(--dark-3);line-height:1;">01</div>
+                    <div class="icon-box-gradient" style="margin:0 auto 20px;"><i class="fas fa-lightbulb"></i></div>
+                    <h4 style="font-size:15px;font-weight:700;color:var(--text-bright);margin-bottom:8px;">Ideation</h4>
+                    <p style="font-size:12px;color:var(--text-muted);line-height:1.6;">Identifikasi masalah dan riset solusi yang tepat</p>
+                </div>
+                <div class="glass-card reveal" style="text-align:center;position:relative;">
+                    <div style="position:absolute;top:16px;right:20px;font-size:48px;font-weight:900;color:var(--dark-3);line-height:1;">02</div>
+                    <div class="icon-box-gradient" style="margin:0 auto 20px;"><i class="fas fa-pen-ruler"></i></div>
+                    <h4 style="font-size:15px;font-weight:700;color:var(--text-bright);margin-bottom:8px;">Design</h4>
+                    <p style="font-size:12px;color:var(--text-muted);line-height:1.6;">Merancang alur dan arsitektur sistem</p>
+                </div>
+                <div class="glass-card reveal" style="text-align:center;position:relative;">
+                    <div style="position:absolute;top:16px;right:20px;font-size:48px;font-weight:900;color:var(--dark-3);line-height:1;">03</div>
+                    <div class="icon-box-gradient" style="margin:0 auto 20px;"><i class="fas fa-code"></i></div>
+                    <h4 style="font-size:15px;font-weight:700;color:var(--text-bright);margin-bottom:8px;">Develop</h4>
+                    <p style="font-size:12px;color:var(--text-muted);line-height:1.6;">Menulis kode dan membangun fitur</p>
+                </div>
+                <div class="glass-card reveal" style="text-align:center;position:relative;">
+                    <div style="position:absolute;top:16px;right:20px;font-size:48px;font-weight:900;color:var(--dark-3);line-height:1;">04</div>
+                    <div class="icon-box-gradient" style="margin:0 auto 20px;"><i class="fas fa-rocket"></i></div>
+                    <h4 style="font-size:15px;font-weight:700;color:var(--text-bright);margin-bottom:8px;">Launch</h4>
+                    <p style="font-size:12px;color:var(--text-muted);line-height:1.6;">Testing, deploy, dan evaluasi hasil</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding:100px 0;background:var(--dark-2);">
+        <div class="container">
+            <div class="reveal" style="background:linear-gradient(135deg,var(--dark-3),var(--dark-4));border:1px solid var(--glass-border);border-radius:24px;padding:60px;text-align:center;position:relative;overflow:hidden;">
+                <div style="font-size:48px;margin-bottom:20px;">🚀</div>
+                <h2 style="font-size:36px;font-weight:800;color:var(--text-bright);margin-bottom:16px;letter-spacing:-1px;position:relative;">Punya Ide Proyek?</h2>
+                <p style="font-size:16px;color:var(--text-muted);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;position:relative;">Mari wujudkan bersama! Saya selalu terbuka untuk kolaborasi dan tantangan baru di dunia teknologi.</p>
+                <div style="display:flex;justify-content:center;gap:16px;position:relative;flex-wrap:wrap;">
+                    <a href="kontak.html" class="btn btn-primary"><i class="fas fa-envelope"></i> Hubungi Saya</a>
+                    <a href="portofolio.html" class="btn btn-outline"><i class="fas fa-folder-open"></i> Lihat Portofolio</a>
+                    <a href="index.html" class="btn btn-outline"><i class="fas fa-home"></i> Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">G</div>
+                        <div class="logo-text">Galang<span>.</span></div>
+                    </a>
+                    <p>Siswa kelas XII yang bersemangat dalam bidang Cyber Security dan Blockchain Technology.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigasi</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="portofolio.html">Portofolio</a></li>
+                        <li><a href="projek.html">Projek</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Minat</h4>
+                    <ul>
+                        <li><a href="#">Cyber Security</a></li>
+                        <li><a href="#">Blockchain</a></li>
+                        <li><a href="#">Programming</a></li>
+                        <li><a href="#">Networking</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontak</h4>
+                    <ul>
+                        <li><a href="kontak.html"><i class="fas fa-envelope" style="margin-right:8px;"></i>Email</a></li>
+                        <li><a href="#"><i class="fab fa-whatsapp" style="margin-right:8px;"></i>WhatsApp</a></li>
+                        <li><a href="#"><i class="fab fa-telegram" style="margin-right:8px;"></i>Telegram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 <a href="#">Galang Suryakusuma</a>. All rights reserved.</p>
+                <p>Built with <i class="fas fa-heart" style="color:#E040FB;margin:0 4px;"></i> and passion</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
 </body>
 </html>
